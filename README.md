@@ -33,11 +33,11 @@ pnpm run dev
 To transform an HTML to JSON :
 
 ```shell
-curl -X POST -H "Content-Type: application/json" -d '{"action": "html2json", "document":"<span>Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en pag"}' http://localhost:8000/transform
+curl -X POST -H "Content-Type: application/json" -d '{"action": "html2json", "htmlContent":"<span>Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en pag"}' http://localhost:8000/transform
 ```
 
 To transform a JSON to HTML :
 
 ```shell
-curl -X POST -H "Content-Type: application/json" -d '{"action": "json2html", "json":{"type":"doc","content":[{"type":"paragraph","content":[{"type":"text","text":"Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en pag"}]}]}}' http://localhost:8000/transform
+curl -X POST -H "Content-Type: application/json" -d '{"action": "json2html", "jsonContent":{"type":"doc","content":[{"type":"paragraph","content":[{"type":"text","text":"Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en pag"}]}]}}' http://localhost:8000/transform
 ```
