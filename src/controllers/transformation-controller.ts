@@ -1,8 +1,9 @@
 import { AuthenticatedRequest, ContentTransformerRequest, ContentTransformerResponse } from '../models/transformation-request.js';
 import { Response } from 'express';
-import { ActionType } from '../models/action.js';
+import { TransformationFormat } from '../models/format.js';
 
 import { generateHTML, generateJSON } from '@tiptap/html'
+import { generateText } from '@tiptap/core';
 
 import StarterKit from '@tiptap/starter-kit';
 import Image from '@tiptap/extension-image'
@@ -54,25 +55,47 @@ export function transformController(req: AuthenticatedRequest, res: Response, se
   const data: ContentTransformerRequest = req.body as ContentTransformerRequest
   console.log(data)
   data.contentVersion = serviceVersion;
-  if (data.action === ActionType.HTML2JSON) {
-    return html2Json(data, res);
+  if (data.htmlContent != null) {
+    return transformHtml(data, res);
+  } else if (data.jsonContent != null){
+    return transformJson(data, res);
   } else {
-    return json2Html(data, res);
+    res.send('No specified content to transform.');
+    return Promise.resolve();
   }
 }
 
-function html2Json(data: ContentTransformerRequest, res: Response<any, Record<string, any>>): Promise<void> {
+function transformHtml(data: ContentTransformerRequest, res: Response<any, Record<string, any>>): Promise<void> {
+  const generatedJsonContent = generateJSON(data.htmlContent, EXTENSIONS);
+  let jsonContent;
+  let plainTextContent;
+  if (data.requestedFormats.includes(TransformationFormat.JSON)) {
+    jsonContent = generatedJsonContent;
+  }
+  if (data.requestedFormats.includes(TransformationFormat.PLAINTEXT)) {
+    plainTextContent = generateText(generatedJsonContent, EXTENSIONS);
+  }
   const response: ContentTransformerResponse = {
     contentVersion: data.contentVersion,
-    jsonContent: generateJSON(data.htmlContent, EXTENSIONS)
+    jsonContent: jsonContent,
+    plainTextContent: plainTextContent
   } as ContentTransformerResponse;
   res.json(response);
   return Promise.resolve();
 }
-function json2Html(data: ContentTransformerRequest, res: Response<any, Record<string, any>>): Promise<void> {
+function transformJson(data: ContentTransformerRequest, res: Response<any, Record<string, any>>): Promise<void> {
+  let htmlContent;
+  let plainTextContent;
+  if (data.requestedFormats.includes(TransformationFormat.HTML)) {
+    htmlContent = generateHTML(data.jsonContent, EXTENSIONS);
+  }
+  if (data.requestedFormats.includes(TransformationFormat.PLAINTEXT)) {
+    plainTextContent = generateText(data.jsonContent, EXTENSIONS);
+  }
   const response: ContentTransformerResponse = {
     contentVersion: data.contentVersion,
-    htmlContent: generateHTML(data.jsonContent, EXTENSIONS)
+    htmlContent: htmlContent,
+    plainTextContent: plainTextContent
   } as ContentTransformerResponse;
   res.json(response);
   return Promise.resolve();

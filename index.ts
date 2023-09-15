@@ -5,7 +5,7 @@ import 'global-jsdom/register';
 import { transformController } from './src/controllers/transformation-controller.js';
 import prom from 'prom-client';
 import { ContentTransformerRequest } from './src/models/transformation-request.js';
-import { ActionType } from './src/models/action.js';
+import { TransformationFormat } from './src/models/format.js';
 
 dotenv.config();
 
@@ -49,10 +49,10 @@ app.post('/transform', (req: Request, res: Response) => {
   const start = Date.now();
   transformController(req, res, serviceVersion).then(() => {
     const elapsed = Date.now() - start;
-    if(data.action === ActionType.HTML2JSON) {
+    if (data.htmlContent != null) {
       h2jCounter.inc();
       h2jTimer.observe(elapsed);
-    } else {
+    } else if (data.jsonContent != null) {
       j2hCounter.inc();
       j2hTimer.observe(elapsed);      
     }

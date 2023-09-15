@@ -5,7 +5,7 @@ export interface AuthenticatedRequest extends Request {
 }
 
 export interface ContentTransformerRequest {
-  action: string;
+  requestedFormats: [string];
   contentVersion: number;
   htmlContent: string;
   jsonContent: any;
@@ -15,4 +15,5 @@ export interface ContentTransformerResponse {
   contentVersion: number;
   htmlContent: string;
   jsonContent: any;
+  plainTextContent: string;
 }
