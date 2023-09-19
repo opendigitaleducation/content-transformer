@@ -16,4 +16,6 @@ export interface ContentTransformerResponse {
   htmlContent: string;
   jsonContent: any;
   plainTextContent: string;
+  cleanHtml: string;
+  cleanJson: any;
 }
