@@ -2,7 +2,6 @@ import dotenv from 'dotenv';
 import express, { Express, Request, Response } from 'express';
 import 'global-jsdom/register';
 import { transformController } from './src/controllers/transformation-controller.js';
-import { ContentTransformerRequest } from './src/models/transformation-request.js';
 import { initMetrics } from './src/controllers/metrics-controller.js';
 
 dotenv.config();
