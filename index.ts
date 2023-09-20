@@ -7,7 +7,7 @@ import { initMetrics } from './src/controllers/metrics-controller.js';
 dotenv.config();
 
 const app: Express = express()
-const port = process.env.PORT || 3100;
+const port = process.env.PORT || 3000;
 const serviceVersion = 1;
 
 initMetrics(app);

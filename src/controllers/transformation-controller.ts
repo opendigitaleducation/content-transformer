@@ -54,8 +54,8 @@ const EXTENSIONS = [
 
 export function transformController(req: AuthenticatedRequest, res: Response, serviceVersion: number): Promise<void> {
   const data: ContentTransformerRequest = req.body as ContentTransformerRequest;
-  let htmlContent;
-  let jsonContent;
+  let generatedHtmlContent;
+  let generatedJsonContent;
   let plainTextContent;
   let cleanHtml;
   let cleanJson;
@@ -67,7 +67,7 @@ export function transformController(req: AuthenticatedRequest, res: Response, se
       // Transforming content to HTML
       if (data.jsonContent != null) {
         const start = Date.now();
-        htmlContent = generateHTML(data.jsonContent, EXTENSIONS);
+        generatedHtmlContent = generateHTML(data.jsonContent, EXTENSIONS);
         updateCounterAndTimer(start, j2hCounter, j2hTimer);
       }
       // Cleaning HTML content
@@ -81,7 +81,7 @@ export function transformController(req: AuthenticatedRequest, res: Response, se
       // Transforming content to JSON
       if (data.htmlContent != null) {
         const start = Date.now();
-        jsonContent = generateJSON(data.htmlContent, EXTENSIONS);
+        generatedJsonContent = generateJSON(data.htmlContent, EXTENSIONS);
         updateCounterAndTimer(start, h2jCounter, h2jTimer);
       }
       // Cleaning JSON content
@@ -99,14 +99,18 @@ export function transformController(req: AuthenticatedRequest, res: Response, se
         updateCounterAndTimer(start, j2plainTextCounter, j2plainTextTimer);
       } else if (data.htmlContent != null) {
         const start = Date.now();
-        plainTextContent = generateText(generateJSON(data.htmlContent, EXTENSIONS), EXTENSIONS);
+        if (generatedJsonContent != null) {
+          plainTextContent = generateText(generatedJsonContent, EXTENSIONS);
+        } else {
+          plainTextContent = generateText(generateJSON(data.htmlContent, EXTENSIONS), EXTENSIONS);
+        }
         updateCounterAndTimer(start, h2plainTextCounter, h2plainTextTimer);
       }
     }
     const response: ContentTransformerResponse = {
       contentVersion: serviceVersion,
-      htmlContent: htmlContent,
-      jsonContent: jsonContent,
+      htmlContent: generatedHtmlContent,
+      jsonContent: generatedJsonContent,
       plainTextContent: plainTextContent,
       cleanHtml: cleanHtml,
       cleanJson: cleanJson
