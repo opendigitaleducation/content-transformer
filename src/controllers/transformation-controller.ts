@@ -1,8 +1,9 @@
 import { AuthenticatedRequest, ContentTransformerRequest, ContentTransformerResponse } from '../models/transformation-request.js';
 import { Response } from 'express';
-import { ActionType } from '../models/action.js';
+import { TransformationFormat } from '../models/format.js';
 
 import { generateHTML, generateJSON } from '@tiptap/html'
+import { generateText } from '@tiptap/core';
 
 import StarterKit from '@tiptap/starter-kit';
 import Image from '@tiptap/extension-image'
@@ -23,6 +24,7 @@ import Typography from "@tiptap/extension-typography";
 import Underline from "@tiptap/extension-underline";
 import { Video } from '@edifice-tiptap-extensions/extension-video'
 import { IFrame } from '@edifice-tiptap-extensions/extension-iframe'
+import { cleanHtmlCounter, cleanHtmlTimer, cleanJsonCounter, cleanJsonTimer, h2jCounter, h2jTimer, h2plainTextCounter, h2plainTextTimer, j2hCounter, j2hTimer, j2plainTextCounter, j2plainTextTimer, updateCounterAndTimer } from './metrics-controller.js';
 
 
 const EXTENSIONS = [
@@ -51,30 +53,70 @@ const EXTENSIONS = [
 ]
 
 export function transformController(req: AuthenticatedRequest, res: Response, serviceVersion: number): Promise<void> {
-  const data: ContentTransformerRequest = req.body as ContentTransformerRequest
-  console.log(data)
-  data.contentVersion = serviceVersion;
-  if (data.action === ActionType.HTML2JSON) {
-    return html2Json(data, res);
+  const data: ContentTransformerRequest = req.body as ContentTransformerRequest;
+  let generatedHtmlContent;
+  let generatedJsonContent;
+  let plainTextContent;
+  let cleanHtml;
+  let cleanJson;
+  if ( data.htmlContent === null && data.jsonContent === null) {
+    res.send('No specified content to transform.');
+    return Promise.resolve();
   } else {
-    return json2Html(data, res);
+    if (data.requestedFormats.includes(TransformationFormat.HTML)) {
+      // Transforming content to HTML
+      if (data.jsonContent != null) {
+        const start = Date.now();
+        generatedHtmlContent = generateHTML(data.jsonContent, EXTENSIONS);
+        updateCounterAndTimer(start, j2hCounter, j2hTimer);
+      }
+      // Cleaning HTML content
+      if (data.htmlContent != null) {
+        const start = Date.now();
+        cleanHtml = generateHTML(generateJSON(data.htmlContent, EXTENSIONS), EXTENSIONS);
+        updateCounterAndTimer(start, cleanHtmlCounter, cleanHtmlTimer);
+      }
+    }
+    if (data.requestedFormats.includes(TransformationFormat.JSON)) {
+      // Transforming content to JSON
+      if (data.htmlContent != null) {
+        const start = Date.now();
+        generatedJsonContent = generateJSON(data.htmlContent, EXTENSIONS);
+        updateCounterAndTimer(start, h2jCounter, h2jTimer);
+      }
+      // Cleaning JSON content
+      if (data.jsonContent != null) {
+        const start = Date.now();
+        cleanJson = generateJSON(generateHTML(data.jsonContent, EXTENSIONS), EXTENSIONS);
+        updateCounterAndTimer(start, cleanJsonCounter, cleanJsonTimer);
+      }
+    }
+    // Transforming content to PLAIN TEXT
+    if (data.requestedFormats.includes(TransformationFormat.PLAINTEXT)) {
+      if (data.jsonContent != null) {
+        const start = Date.now();
+        plainTextContent = generateText(data.jsonContent, EXTENSIONS);
+        updateCounterAndTimer(start, j2plainTextCounter, j2plainTextTimer);
+      } else if (data.htmlContent != null) {
+        const start = Date.now();
+        if (generatedJsonContent != null) {
+          plainTextContent = generateText(generatedJsonContent, EXTENSIONS);
+        } else {
+          plainTextContent = generateText(generateJSON(data.htmlContent, EXTENSIONS), EXTENSIONS);
+        }
+        updateCounterAndTimer(start, h2plainTextCounter, h2plainTextTimer);
+      }
+    }
+    const response: ContentTransformerResponse = {
+      contentVersion: serviceVersion,
+      htmlContent: generatedHtmlContent,
+      jsonContent: generatedJsonContent,
+      plainTextContent: plainTextContent,
+      cleanHtml: cleanHtml,
+      cleanJson: cleanJson
+    } as ContentTransformerResponse;
+    res.json(response);
+    return Promise.resolve();
   }
-}
-
-function html2Json(data: ContentTransformerRequest, res: Response<any, Record<string, any>>): Promise<void> {
-  const response: ContentTransformerResponse = {
-    contentVersion: data.contentVersion,
-    jsonContent: generateJSON(data.htmlContent, EXTENSIONS)
-  } as ContentTransformerResponse;
-  res.json(response);
-  return Promise.resolve();
-}
-function json2Html(data: ContentTransformerRequest, res: Response<any, Record<string, any>>): Promise<void> {
-  const response: ContentTransformerResponse = {
-    contentVersion: data.contentVersion,
-    htmlContent: generateHTML(data.jsonContent, EXTENSIONS)
-  } as ContentTransformerResponse;
-  res.json(response);
-  return Promise.resolve();
 }
 
