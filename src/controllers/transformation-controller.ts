@@ -24,6 +24,7 @@ import Typography from "@tiptap/extension-typography";
 import Underline from "@tiptap/extension-underline";
 import { Video } from '@edifice-tiptap-extensions/extension-video'
 import { IFrame } from '@edifice-tiptap-extensions/extension-iframe'
+import { MathJax } from '@edifice-tiptap-extensions/extension-mathjax'
 import { cleanHtmlCounter, cleanHtmlTimer, cleanJsonCounter, cleanJsonTimer, h2jCounter, h2jTimer, h2plainTextCounter, h2plainTextTimer, j2hCounter, j2hTimer, j2plainTextCounter, j2plainTextTimer, updateCounterAndTimer } from './metrics-controller.js';
 
 
@@ -48,6 +49,7 @@ const EXTENSIONS = [
   }),
   Video,
   IFrame,
+  MathJax,
   Typography,
   TypoSize,
 ]
@@ -59,7 +61,7 @@ export function transformController(req: AuthenticatedRequest, res: Response, se
   let plainTextContent;
   let cleanHtml;
   let cleanJson;
-  if ( data.htmlContent === null && data.jsonContent === null) {
+  if (data.htmlContent === null && data.jsonContent === null) {
     res.send('No specified content to transform.');
     return Promise.resolve();
   } else {

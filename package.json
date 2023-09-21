@@ -2,6 +2,7 @@
   "type": "module",
   "dependencies": {
     "@edifice-tiptap-extensions/extension-iframe": "^1.0.0-dev.1",
+    "@edifice-tiptap-extensions/extension-mathjax": "1.0.0-develop-b2school.1",
     "@edifice-tiptap-extensions/extension-typosize": "1.0.0-develop-b2school.1",
     "@edifice-tiptap-extensions/extension-video": "^1.0.0-dev.1",
     "@tiptap/core": "^2.0.3",
