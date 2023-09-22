@@ -9,8 +9,8 @@ dependencies:
     specifier: ^1.0.0-dev.1
     version: 1.0.0-dev.1(@tiptap/core@2.0.3)(@tiptap/pm@2.0.3)
   '@edifice-tiptap-extensions/extension-mathjax':
-    specifier: 1.0.0-develop-b2school.1
-    version: 1.0.0-develop-b2school.1(@tiptap/core@2.0.3)(@tiptap/pm@2.0.3)
+    specifier: 1.0.0-develop-b2school.2
+    version: 1.0.0-develop-b2school.2(@tiptap/core@2.0.3)(@tiptap/pm@2.0.3)
   '@edifice-tiptap-extensions/extension-typosize':
     specifier: 1.0.0-develop-b2school.1
     version: 1.0.0-develop-b2school.1(@tiptap/core@2.0.3)(@tiptap/pm@2.0.3)
@@ -382,8 +382,8 @@ packages:
       '@tiptap/pm': 2.0.3(@tiptap/core@2.0.3)
     dev: false
 
-  /@edifice-tiptap-extensions/extension-mathjax@1.0.0-develop-b2school.1(@tiptap/core@2.0.3)(@tiptap/pm@2.0.3):
-    resolution: {integrity: sha512-xUdz8OD0bT2FCAgLLoAnBMmgtmZ4ln0+vlUqTn6DLheqvSANuMsTkaHUg8ecC8OBeRdj0B5QgphKnAe2XHcdMA==}
+  /@edifice-tiptap-extensions/extension-mathjax@1.0.0-develop-b2school.2(@tiptap/core@2.0.3)(@tiptap/pm@2.0.3):
+    resolution: {integrity: sha512-5Q1LNAG1PYEQgK/YGDV937kIwmBN91QPT5v6890YmAZmxn0hF8eC7p9CZWhNo6Yu3d4WR51nPn1Heesbl4dRnA==}
     peerDependencies:
       '@tiptap/core': 2.0.3
       '@tiptap/pm': 2.0.3
