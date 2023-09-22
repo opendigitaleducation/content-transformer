@@ -25,6 +25,7 @@ import Underline from "@tiptap/extension-underline";
 import { Video } from '@edifice-tiptap-extensions/extension-video'
 import { IFrame } from '@edifice-tiptap-extensions/extension-iframe'
 import { MathJax } from '@edifice-tiptap-extensions/extension-mathjax'
+import { Attachment } from '@edifice-tiptap-extensions/extension-attachment'
 import { cleanHtmlCounter, cleanHtmlTimer, cleanJsonCounter, cleanJsonTimer, h2jCounter, h2jTimer, h2plainTextCounter, h2plainTextTimer, j2hCounter, j2hTimer, j2plainTextCounter, j2plainTextTimer, updateCounterAndTimer } from './metrics-controller.js';
 
 
@@ -50,6 +51,7 @@ const EXTENSIONS = [
   Video,
   IFrame,
   MathJax,
+  Attachment,
   Typography,
   TypoSize,
 ]

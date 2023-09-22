@@ -5,12 +5,15 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@edifice-tiptap-extensions/extension-attachment':
+    specifier: 1.0.0-develop-b2school.1
+    version: 1.0.0-develop-b2school.1(@tiptap/core@2.0.3)(@tiptap/pm@2.0.3)
   '@edifice-tiptap-extensions/extension-iframe':
     specifier: ^1.0.0-dev.1
     version: 1.0.0-dev.1(@tiptap/core@2.0.3)(@tiptap/pm@2.0.3)
   '@edifice-tiptap-extensions/extension-mathjax':
-    specifier: 1.0.0-develop-b2school.2
-    version: 1.0.0-develop-b2school.2(@tiptap/core@2.0.3)(@tiptap/pm@2.0.3)
+    specifier: 1.0.0-develop-b2school.3
+    version: 1.0.0-develop-b2school.3(@tiptap/core@2.0.3)(@tiptap/pm@2.0.3)
   '@edifice-tiptap-extensions/extension-typosize':
     specifier: 1.0.0-develop-b2school.1
     version: 1.0.0-develop-b2school.1(@tiptap/core@2.0.3)(@tiptap/pm@2.0.3)
@@ -372,6 +375,16 @@ packages:
       to-fast-properties: 2.0.0
     dev: false
 
+  /@edifice-tiptap-extensions/extension-attachment@1.0.0-develop-b2school.1(@tiptap/core@2.0.3)(@tiptap/pm@2.0.3):
+    resolution: {integrity: sha512-NcJ7EpA+YAfpI2QGRJ80BHfsjz5IsAchvol2BC2GNYcPyMTiGCoAhg+GoQqMkomJAcZLR/hYrKVJ8pxfRf1Kdg==}
+    peerDependencies:
+      '@tiptap/core': 2.0.3
+      '@tiptap/pm': 2.0.3
+    dependencies:
+      '@tiptap/core': 2.0.3(@tiptap/pm@2.0.3)
+      '@tiptap/pm': 2.0.3(@tiptap/core@2.0.3)
+    dev: false
+
   /@edifice-tiptap-extensions/extension-iframe@1.0.0-dev.1(@tiptap/core@2.0.3)(@tiptap/pm@2.0.3):
     resolution: {integrity: sha512-nRY7zd9wtA9Roes2cprwiNKzFL5kVjvP269z0E/8uaxve3qccr2YenqjFd/AmBo+Uh7N/cZKb3kx/NLkwqNtAQ==}
     peerDependencies:
@@ -382,8 +395,8 @@ packages:
       '@tiptap/pm': 2.0.3(@tiptap/core@2.0.3)
     dev: false
 
-  /@edifice-tiptap-extensions/extension-mathjax@1.0.0-develop-b2school.2(@tiptap/core@2.0.3)(@tiptap/pm@2.0.3):
-    resolution: {integrity: sha512-5Q1LNAG1PYEQgK/YGDV937kIwmBN91QPT5v6890YmAZmxn0hF8eC7p9CZWhNo6Yu3d4WR51nPn1Heesbl4dRnA==}
+  /@edifice-tiptap-extensions/extension-mathjax@1.0.0-develop-b2school.3(@tiptap/core@2.0.3)(@tiptap/pm@2.0.3):
+    resolution: {integrity: sha512-pZbh/+uimehW9TLL+wasizsb0bGlBob0IAuh9l8VYrpjRaBAAwQs4EsEekvBii0sk9uVihu+rCLTGNe6D98/ow==}
     peerDependencies:
       '@tiptap/core': 2.0.3
       '@tiptap/pm': 2.0.3
