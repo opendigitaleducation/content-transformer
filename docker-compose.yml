@@ -17,5 +17,5 @@ services:
     environment:
       ROOT_URL: http://content-transformer:3000
       DATA_ROOT_PATH: /home/k6/data
-      DURATION: 6s
-      VUS: 50
+      DURATION: 120s
+      VUS: 100
