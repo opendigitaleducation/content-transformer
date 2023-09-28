@@ -1,12 +1,35 @@
-# Transformeur de contenu riche
+# Rich content transformer
 
-## Installation
+- [Rich content transformer](#rich-content-transformer)
+  - [In Docker](#in-docker)
+  - [Without Docker](#without-docker)
+    - [Installation](#installation)
+    - [Customization](#customization)
+    - [Build](#build)
+    - [Local run](#local-run)
+  - [Call samples](#call-samples)
+  - [Load testing](#load-testing)
+  - [Description](#description)
+  - [Execution](#execution)
+  - [Extension](#extension)
+
+
+
+## In Docker
+
+
+```shell
+docker-compose up -d content-transformer --build
+```
+
+## Without Docker
+### Installation
 
 ```shell
 pnpm i
 ```
 
-## Customization
+### Customization
 
 Execute the following command :
 
@@ -16,13 +39,13 @@ cp .env.template .env
 
 Then modify `.env` file to suit your needs.
 
-## Build
+### Build
 
 ```shell
 pnpm run build
 ```
 
-## Local run
+### Local run
 
 ```shell
 pnpm run dev
@@ -94,3 +117,25 @@ To access metrics:
 ```shell
 curl -L -X GET 'http://localhost:3000/metrics'
 ```
+
+## Load testing
+
+## Description
+
+Load testing are run by launching load-tester container. This container can be customized by changing its environment variables :
+- `ROOT_URL`, the root URL of the content transformer to load test (shoul be kept to `http://content-transformer:3000` to test your local service)
+- `DATA_ROOT_PATH`, should not be changed
+- `DURATION`, the duration of the test
+- `VUS`, the number of virtual users (see [official documentation](https://k6.io/docs/get-started/running-k6/) for more information)
+
+
+## Execution
+
+```shell
+docker-compose up -d content-transformer --build # To start your container with the latest version of your local source
+docker-compose run --rm load-tester run src/index.js # Starts the tests
+```
+
+## Extension
+
+To add more files to the test set, add html files in `test/data/big` or `test/data/small` (depending on its size) and make sure to change the way `smallHtmls` and `bigHtmls` are loaded in [index.ts](./index.ts).
