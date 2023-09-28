@@ -4,8 +4,18 @@ services:
     user: "1000:1000"
     build:
       context: ./
-      dockerfile: ../Dockerfile
       target: production
-
+    environment:
+      MAX_BODY_SIZE: 2mb
     ports:
       - "3000:3000"
+  load-tester:
+    image: grafana/k6:master
+    volumes:
+      - ./test/src:/home/k6/src
+      - ./test/data:/home/k6/data
+    environment:
+      ROOT_URL: http://content-transformer:3000
+      DATA_ROOT_PATH: /home/k6/data
+      DURATION: 6s
+      VUS: 50
