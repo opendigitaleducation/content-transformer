@@ -12,7 +12,13 @@ const serviceVersion = 1;
 
 initMetrics(app);
 
-app.use(express.json());
+const expressOptions: any = {}
+if (process.env.MAX_BODY_SIZE) {
+  expressOptions['limit'] = process.env.MAX_BODY_SIZE
+}
+
+
+app.use(express.json(expressOptions));
 app.use((err: Error, req: Request, res: express.Response, next: express.NextFunction) => {
   console.error(err.stack);
   res.status(500).json({ error: 'internal.server.error' });
@@ -20,7 +26,7 @@ app.use((err: Error, req: Request, res: express.Response, next: express.NextFunc
 
 
 app.get('/', (req: Request, res: Response) => {
-    res.send('Hello World!')
+  res.send('Hello World!')
 });
 
 
