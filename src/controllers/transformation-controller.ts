@@ -63,7 +63,7 @@ export function transformController(req: AuthenticatedRequest, res: Response, se
   let plainTextContent;
   let cleanHtml;
   let cleanJson;
-  if (data.htmlContent === null && data.jsonContent === null) {
+  if (!data.htmlContent && !data.jsonContent) {
     res.send('No specified content to transform.');
     return Promise.resolve();
   } else {
