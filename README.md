@@ -37,7 +37,12 @@ Execute the following command :
 cp .env.template .env
 ```
 
-Then modify `.env` file to suit your needs.
+Then modify `.env` file to suit your needs (all variables are optional and can be removed) :
+
+- **PORT** (default: 3000): port number on which the service is listening for transformation request
+- **METRICS_PORT** (default: 3001): port number on which the service is listening to serve the metrics
+- **NB_THREADS** (default: number of CPUs): number of concurrent services that will handle transformation requests. In development environments it is best to set this value to 1. In production, it should be set to the number of available CPUs (or removed from .env file, which will have the same effect)
+- **MAX_BODY_SIZE** (default: 2mb): the maximum size of a request body. Beyond the specified limit, the request will be rejected.
 
 ### Build
 

@@ -6,9 +6,13 @@ services:
       context: ./
       target: production
     environment:
+      PORT: 3000
+      METRICS_PORT: 3001
+      NB_THREADS: 1
       MAX_BODY_SIZE: 2mb
     ports:
       - "3000:3000"
+      - "3001:3001"
   load-tester:
     image: grafana/k6:master
     volumes:

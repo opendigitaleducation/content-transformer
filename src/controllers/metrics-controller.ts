@@ -6,7 +6,7 @@ export const h2jCounter = new prom.Counter({
     help: 'The number of transformations from HTML to JSON'
 });
 export const j2hCounter = new prom.Counter({
-    name: 'json_html_2_total',
+    name: 'json_2_html_total',
     help: 'The number of transformations from JSON to HTML'
 });
 export const h2plainTextCounter = new prom.Counter({
