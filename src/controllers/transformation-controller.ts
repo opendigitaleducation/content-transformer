@@ -1,31 +1,31 @@
-import { AuthenticatedRequest, ContentTransformerRequest, ContentTransformerResponse } from '../models/transformation-request.js';
 import { Response } from 'express';
 import { TransformationFormat } from '../models/format.js';
+import { AuthenticatedRequest, ContentTransformerRequest, ContentTransformerResponse } from '../models/transformation-request.js';
 
-import { generateHTML, generateJSON } from '@tiptap/html'
 import { generateText } from '@tiptap/core';
+import { generateHTML, generateJSON } from '@tiptap/html';
 
-import StarterKit from '@tiptap/starter-kit';
-import Image from '@tiptap/extension-image'
-import { Color } from '@tiptap/extension-color'
+import { Attachment } from '@edifice-tiptap-extensions/extension-attachment';
+import { Audio } from "@edifice-tiptap-extensions/extension-audio";
+import { IFrame } from '@edifice-tiptap-extensions/extension-iframe';
+import { Linker } from '@edifice-tiptap-extensions/extension-linker';
+import { MathJax } from '@edifice-tiptap-extensions/extension-mathjax';
+import { TableCell } from '@edifice-tiptap-extensions/extension-table-cell';
+import { TypoSize } from "@edifice-tiptap-extensions/extension-typosize";
+import { Video } from '@edifice-tiptap-extensions/extension-video';
+import { Color } from '@tiptap/extension-color';
+import FontFamily from "@tiptap/extension-font-family";
 import Highlight from "@tiptap/extension-highlight";
 import Subscript from "@tiptap/extension-subscript";
 import Superscript from "@tiptap/extension-superscript";
-import ListItem from '@tiptap/extension-list-item'
-import TextStyle, { TextStyleOptions } from '@tiptap/extension-text-style'
-import Link from '@tiptap/extension-link'
-import Table from '@tiptap/extension-table'
-import TableCell from '@tiptap/extension-table-cell'
-import TableHeader from '@tiptap/extension-table-header'
-import TableRow from '@tiptap/extension-table-row'
-import { TypoSize } from "@edifice-tiptap-extensions/extension-typosize";
+import Table from '@tiptap/extension-table';
+import TableHeader from '@tiptap/extension-table-header';
+import TableRow from '@tiptap/extension-table-row';
 import TextAlign from "@tiptap/extension-text-align";
+import TextStyle from '@tiptap/extension-text-style';
 import Typography from "@tiptap/extension-typography";
 import Underline from "@tiptap/extension-underline";
-import { Video } from '@edifice-tiptap-extensions/extension-video'
-import { IFrame } from '@edifice-tiptap-extensions/extension-iframe'
-import { MathJax } from '@edifice-tiptap-extensions/extension-mathjax'
-import { Attachment } from '@edifice-tiptap-extensions/extension-attachment'
+import StarterKit from '@tiptap/starter-kit';
 import { cleanHtmlCounter, cleanHtmlTimer, cleanJsonCounter, cleanJsonTimer, h2jCounter, h2jTimer, h2plainTextCounter, h2plainTextTimer, j2hCounter, j2hTimer, j2plainTextCounter, j2plainTextTimer, updateCounterAndTimer } from './metrics-controller.js';
 
 
@@ -39,8 +39,6 @@ const EXTENSIONS = [
   Color,
   Subscript,
   Superscript,
-  Image,
-  Link,
   Table,
   TableRow,
   TableHeader,
@@ -48,12 +46,15 @@ const EXTENSIONS = [
   TextAlign.configure({
     types: ["heading", "paragraph"],
   }),
-  Video,
-  IFrame,
-  MathJax,
-  Attachment,
   Typography,
   TypoSize,
+  IFrame,
+  Video,
+  Linker,
+  FontFamily,
+  MathJax,
+  Audio,
+  Attachment,
 ]
 
 export function transformController(req: AuthenticatedRequest, res: Response, serviceVersion: number): Promise<void> {

@@ -8,12 +8,27 @@ dependencies:
   '@edifice-tiptap-extensions/extension-attachment':
     specifier: 1.0.0-develop-b2school.1
     version: 1.0.0-develop-b2school.1(@tiptap/core@2.0.3)(@tiptap/pm@2.0.3)
+  '@edifice-tiptap-extensions/extension-audio':
+    specifier: ^1.0.0-develop-b2school.1
+    version: 1.0.0-develop-b2school.1(@tiptap/core@2.0.3)(@tiptap/pm@2.0.3)
+  '@edifice-tiptap-extensions/extension-hyperlink':
+    specifier: ^1.0.0-develop-b2school.1
+    version: 1.0.0-develop-b2school.1(@tiptap/core@2.0.3)(@tiptap/extension-link@2.0.3)(@tiptap/pm@2.0.3)
   '@edifice-tiptap-extensions/extension-iframe':
     specifier: ^1.0.0-dev.1
     version: 1.0.0-dev.1(@tiptap/core@2.0.3)(@tiptap/pm@2.0.3)
+  '@edifice-tiptap-extensions/extension-image':
+    specifier: ^1.0.0-develop-b2school.1
+    version: 1.0.0-develop-b2school.1(@tiptap/core@2.0.3)(@tiptap/pm@2.0.3)
+  '@edifice-tiptap-extensions/extension-linker':
+    specifier: ^1.0.0-develop-b2school.1
+    version: 1.0.0-develop-b2school.1(@tiptap/core@2.0.3)(@tiptap/extension-link@2.0.3)(@tiptap/pm@2.0.3)
   '@edifice-tiptap-extensions/extension-mathjax':
     specifier: 1.0.0-develop-b2school.8
     version: 1.0.0-develop-b2school.8(@tiptap/core@2.0.3)(@tiptap/pm@2.0.3)
+  '@edifice-tiptap-extensions/extension-table-cell':
+    specifier: ^1.0.0-develop-b2school.1
+    version: 1.0.0-develop-b2school.1(@tiptap/core@2.0.3)(@tiptap/pm@2.0.3)
   '@edifice-tiptap-extensions/extension-typosize':
     specifier: 1.0.0-develop-b2school.1
     version: 1.0.0-develop-b2school.1(@tiptap/core@2.0.3)(@tiptap/pm@2.0.3)
@@ -385,6 +400,28 @@ packages:
       '@tiptap/pm': 2.0.3(@tiptap/core@2.0.3)
     dev: false
 
+  /@edifice-tiptap-extensions/extension-audio@1.0.0-develop-b2school.1(@tiptap/core@2.0.3)(@tiptap/pm@2.0.3):
+    resolution: {integrity: sha512-xsm1RQBlEo7igFhLpzWajopPUrHjLOF6tuU0BytESDmnTc4osA3ngXYb2/yjHJ84Ib8cSp1NVWsgj2ryyusOQw==}
+    peerDependencies:
+      '@tiptap/core': 2.0.3
+      '@tiptap/pm': 2.0.3
+    dependencies:
+      '@tiptap/core': 2.0.3(@tiptap/pm@2.0.3)
+      '@tiptap/pm': 2.0.3(@tiptap/core@2.0.3)
+    dev: false
+
+  /@edifice-tiptap-extensions/extension-hyperlink@1.0.0-develop-b2school.1(@tiptap/core@2.0.3)(@tiptap/extension-link@2.0.3)(@tiptap/pm@2.0.3):
+    resolution: {integrity: sha512-LbnmZLn7k07jVMrWl0Tuysv7IezUHJOfDFAe45aE6CEXtxGErFxvXfRT/g5/BIuG+SgmnjjIfoLCYI3Icj65ig==}
+    peerDependencies:
+      '@tiptap/core': 2.0.3
+      '@tiptap/extension-link': 2.0.3
+      '@tiptap/pm': 2.0.3
+    dependencies:
+      '@tiptap/core': 2.0.3(@tiptap/pm@2.0.3)
+      '@tiptap/extension-link': 2.0.3(@tiptap/core@2.0.3)(@tiptap/pm@2.0.3)
+      '@tiptap/pm': 2.0.3(@tiptap/core@2.0.3)
+    dev: false
+
   /@edifice-tiptap-extensions/extension-iframe@1.0.0-dev.1(@tiptap/core@2.0.3)(@tiptap/pm@2.0.3):
     resolution: {integrity: sha512-nRY7zd9wtA9Roes2cprwiNKzFL5kVjvP269z0E/8uaxve3qccr2YenqjFd/AmBo+Uh7N/cZKb3kx/NLkwqNtAQ==}
     peerDependencies:
@@ -395,8 +432,40 @@ packages:
       '@tiptap/pm': 2.0.3(@tiptap/core@2.0.3)
     dev: false
 
+  /@edifice-tiptap-extensions/extension-image@1.0.0-develop-b2school.1(@tiptap/core@2.0.3)(@tiptap/pm@2.0.3):
+    resolution: {integrity: sha512-UCWOoAYYyr4DXnqGetElQv33vMZde6yMawnGJs8BuJEf22BHK0APGv8WdDy9B9hdV9YHV8sSoq9TP0sXoXizXw==}
+    peerDependencies:
+      '@tiptap/core': 2.0.3
+      '@tiptap/pm': 2.0.3
+    dependencies:
+      '@tiptap/core': 2.0.3(@tiptap/pm@2.0.3)
+      '@tiptap/pm': 2.0.3(@tiptap/core@2.0.3)
+    dev: false
+
+  /@edifice-tiptap-extensions/extension-linker@1.0.0-develop-b2school.1(@tiptap/core@2.0.3)(@tiptap/extension-link@2.0.3)(@tiptap/pm@2.0.3):
+    resolution: {integrity: sha512-S3aUY/vfiLsy15b3LOb1dd8h/QmFtnKnTafOMUy8z4iEBpsvC7hEoleTxoBr2HWfBw/AHmslmnTARvJM6Yiz2Q==}
+    peerDependencies:
+      '@tiptap/core': 2.0.3
+      '@tiptap/extension-link': 2.0.3
+      '@tiptap/pm': 2.0.3
+    dependencies:
+      '@tiptap/core': 2.0.3(@tiptap/pm@2.0.3)
+      '@tiptap/extension-link': 2.0.3(@tiptap/core@2.0.3)(@tiptap/pm@2.0.3)
+      '@tiptap/pm': 2.0.3(@tiptap/core@2.0.3)
+    dev: false
+
   /@edifice-tiptap-extensions/extension-mathjax@1.0.0-develop-b2school.8(@tiptap/core@2.0.3)(@tiptap/pm@2.0.3):
     resolution: {integrity: sha512-4u7PB4MClGi+pIzaxlJAqa5dZ6K2/An4JyPLectCbMS6Kec3rY3Pzx1Re4aVmbAwMbskToxG5KtQMtZmilQPRQ==}
+    peerDependencies:
+      '@tiptap/core': 2.0.3
+      '@tiptap/pm': 2.0.3
+    dependencies:
+      '@tiptap/core': 2.0.3(@tiptap/pm@2.0.3)
+      '@tiptap/pm': 2.0.3(@tiptap/core@2.0.3)
+    dev: false
+
+  /@edifice-tiptap-extensions/extension-table-cell@1.0.0-develop-b2school.1(@tiptap/core@2.0.3)(@tiptap/pm@2.0.3):
+    resolution: {integrity: sha512-Mi5BHYyqUeixeH28A6A7GdnXOXfGPZfz5CB2f1UtnpnFgZT367S4FuipDt1mfJrBUD7AUm6p+X1iQgWg141ntQ==}
     peerDependencies:
       '@tiptap/core': 2.0.3
       '@tiptap/pm': 2.0.3
@@ -992,6 +1061,7 @@ packages:
 
   /abab@2.0.6:
     resolution: {integrity: sha512-j2afSsaIENvHZN2B8GOpF566vZ5WVk5opAiMTvWgaQT8DkbOqsTfvNAvHoRGU2zzP8cPoqys+xHTRDWW8L+/BA==}
+    deprecated: Use your platform's native atob() and btoa() methods instead
     dev: false
 
   /abbrev@1.1.1:
@@ -1369,6 +1439,7 @@ packages:
   /domexception@4.0.0:
     resolution: {integrity: sha512-A2is4PLG+eeSfoTMA95/s4pvAoSo2mKtiM5jlHkAVewmiO8ISFTFKZjH7UAM1Atli/OT/7JHOrJRJiMKUZKYBw==}
     engines: {node: '>=12'}
+    deprecated: Use your platform's native DOMException instead
     dependencies:
       webidl-conversions: 7.0.0
     dev: false
