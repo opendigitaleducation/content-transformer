@@ -40,7 +40,7 @@
     "prom-client": "^14.2.0"
   },
   "name": "rich-content-transformer",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Uses TipTap library to transform HTML to JSON and back",
   "main": "index.js",
   "scripts": {
