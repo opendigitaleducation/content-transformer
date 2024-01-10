@@ -9,6 +9,7 @@
     "@edifice-tiptap-extensions/extension-linker": "^1.0.0-develop-b2school.1",
     "@edifice-tiptap-extensions/extension-mathjax": "1.0.0-develop-b2school.8",
     "@edifice-tiptap-extensions/extension-table-cell": "^1.0.0-develop-b2school.2",
+    "@edifice-tiptap-extensions/extension-templates": "1.0.0-develop-b2school.1",
     "@edifice-tiptap-extensions/extension-typosize": "1.0.0-develop-b2school.1",
     "@edifice-tiptap-extensions/extension-video": "^1.0.0-dev.1",
     "@tiptap/core": "^2.0.3",
@@ -40,7 +41,7 @@
     "prom-client": "^14.2.0"
   },
   "name": "rich-content-transformer",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Uses TipTap library to transform HTML to JSON and back",
   "main": "index.js",
   "scripts": {

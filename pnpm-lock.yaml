@@ -29,6 +29,9 @@ dependencies:
   '@edifice-tiptap-extensions/extension-table-cell':
     specifier: ^1.0.0-develop-b2school.2
     version: 1.0.0-develop-b2school.2(@tiptap/core@2.0.3)(@tiptap/pm@2.0.3)
+  '@edifice-tiptap-extensions/extension-templates':
+    specifier: 1.0.0-develop-b2school.1
+    version: 1.0.0-develop-b2school.1(@tiptap/core@2.0.3)(@tiptap/pm@2.0.3)
   '@edifice-tiptap-extensions/extension-typosize':
     specifier: 1.0.0-develop-b2school.1
     version: 1.0.0-develop-b2school.1(@tiptap/core@2.0.3)(@tiptap/pm@2.0.3)
@@ -466,6 +469,16 @@ packages:
 
   /@edifice-tiptap-extensions/extension-table-cell@1.0.0-develop-b2school.2(@tiptap/core@2.0.3)(@tiptap/pm@2.0.3):
     resolution: {integrity: sha512-zietPHlZJhju4b5MC+YsrV3RuSlsHjL8mGwAI2u09Qd7sNMofc0sy0WEoEaBCL0jAFVsvnnqZiU9BnTyjlPtiA==}
+    peerDependencies:
+      '@tiptap/core': 2.0.3
+      '@tiptap/pm': 2.0.3
+    dependencies:
+      '@tiptap/core': 2.0.3(@tiptap/pm@2.0.3)
+      '@tiptap/pm': 2.0.3(@tiptap/core@2.0.3)
+    dev: false
+
+  /@edifice-tiptap-extensions/extension-templates@1.0.0-develop-b2school.1(@tiptap/core@2.0.3)(@tiptap/pm@2.0.3):
+    resolution: {integrity: sha512-HkYYVkq/fHsM6ZUzcn0drMkBGthS/V8z+orUDqHTFDUDznqHMBj6DEDmvQtzCQs4NBhbnCMEqhSfLpG8TEYFhA==}
     peerDependencies:
       '@tiptap/core': 2.0.3
       '@tiptap/pm': 2.0.3

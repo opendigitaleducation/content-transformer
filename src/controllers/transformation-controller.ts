@@ -14,6 +14,7 @@ import { ImageExtend } from '@edifice-tiptap-extensions/extension-image';
 import { Linker } from '@edifice-tiptap-extensions/extension-linker';
 import { MathJax } from '@edifice-tiptap-extensions/extension-mathjax';
 import { TableCell } from '@edifice-tiptap-extensions/extension-table-cell';
+import { Templates } from '@edifice-tiptap-extensions/extension-templates';
 import { TypoSize } from "@edifice-tiptap-extensions/extension-typosize";
 import { Video } from '@edifice-tiptap-extensions/extension-video';
 import { Color } from '@tiptap/extension-color';
@@ -61,6 +62,7 @@ const EXTENSIONS = [
   FontFamily,
   MathJax,
   Audio,
+  Templates,
 ]
 
 export function transformController(req: AuthenticatedRequest, res: Response, serviceVersion: number): Promise<void> {
