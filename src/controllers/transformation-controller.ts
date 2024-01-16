@@ -6,12 +6,12 @@ import { generateText } from '@tiptap/core';
 import Link from "@tiptap/extension-link";
 import { generateHTML, generateJSON } from '@tiptap/html';
 
-import { Alert } from '@edifice-tiptap-extensions/extension-alert';
+import { Alerts } from '@edifice-tiptap-extensions/extension-alert';
 import { Attachment } from '@edifice-tiptap-extensions/extension-attachment';
 import { Audio } from "@edifice-tiptap-extensions/extension-audio";
 import { Hyperlink } from '@edifice-tiptap-extensions/extension-hyperlink';
-import { IFrame } from '@edifice-tiptap-extensions/extension-iframe';
-import { ImageExtend } from '@edifice-tiptap-extensions/extension-image';
+import { Iframe } from '@edifice-tiptap-extensions/extension-iframe';
+import { CustomImage } from '@edifice-tiptap-extensions/extension-image';
 import { Linker } from '@edifice-tiptap-extensions/extension-linker';
 import { MathJax } from '@edifice-tiptap-extensions/extension-mathjax';
 import { TableCell } from '@edifice-tiptap-extensions/extension-table-cell';
@@ -53,8 +53,8 @@ const EXTENSIONS = [
   }),
   Typography,
   TypoSize,
-  IFrame,
-  ImageExtend,
+  Iframe,
+  CustomImage,
   Video,
   Attachment,
   Linker,
@@ -64,7 +64,7 @@ const EXTENSIONS = [
   MathJax,
   Audio,
   Templates,
-  Alert,
+  Alerts,
 ]
 
 export function transformController(req: AuthenticatedRequest, res: Response, serviceVersion: number): Promise<void> {
