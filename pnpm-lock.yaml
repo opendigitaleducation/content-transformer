@@ -34,7 +34,7 @@ dependencies:
     version: 1.0.1-develop.111(@tiptap/core@2.1.16)(@tiptap/pm@2.1.16)
   '@edifice-tiptap-extensions/extension-templates':
     specifier: develop
-    version: 1.0.1-develop.112(@tiptap/core@2.1.16)(@tiptap/pm@2.1.16)
+    version: 1.0.1-develop.115(@tiptap/core@2.1.16)(@tiptap/pm@2.1.16)
   '@edifice-tiptap-extensions/extension-typosize':
     specifier: develop
     version: 1.0.1-develop.111(@tiptap/core@2.1.16)(@tiptap/extension-heading@2.1.16)(@tiptap/pm@2.1.16)
@@ -128,8 +128,8 @@ devDependencies:
     specifier: ^4.17.21
     version: 4.17.21
   '@types/node':
-    specifier: ^20.11.4
-    version: 20.11.4
+    specifier: ^20.11.5
+    version: 20.11.5
   concurrently:
     specifier: ^8.2.2
     version: 8.2.2
@@ -251,8 +251,8 @@ packages:
       '@tiptap/pm': 2.1.16
     dev: false
 
-  /@edifice-tiptap-extensions/extension-templates@1.0.1-develop.112(@tiptap/core@2.1.16)(@tiptap/pm@2.1.16):
-    resolution: {integrity: sha512-qBelR6nnmQt85MgVsA8uB4WLS4/rfBZReg3vh78/sbScRvnDQ9XpS3X+ne3opcCw2FincpfeR97Koq/8Z6R7fA==}
+  /@edifice-tiptap-extensions/extension-templates@1.0.1-develop.115(@tiptap/core@2.1.16)(@tiptap/pm@2.1.16):
+    resolution: {integrity: sha512-5h08+88xuJhoqUu6sjWJPe1bGBFsHl4KGYh6JljcGUeycmwqiHhlvjIIrt95i14VN/dXMGE5zlGl9nNyElh9Pg==}
     peerDependencies:
       '@tiptap/core': 2.0.3
       '@tiptap/pm': 2.0.3
@@ -666,19 +666,19 @@ packages:
     resolution: {integrity: sha512-fB3Zu92ucau0iQ0JMCFQE7b/dv8Ot07NI3KaZIkIUNXq82k4eBAqUaneXfleGY9JWskeS9y+u0nXMyspcuQrCg==}
     dependencies:
       '@types/connect': 3.4.38
-      '@types/node': 20.11.4
+      '@types/node': 20.11.5
     dev: true
 
   /@types/connect@3.4.38:
     resolution: {integrity: sha512-K6uROf1LD88uDQqJCktA4yzL1YYAK6NgfsI0v/mTgyPKWsX1CnJ0XPSDhViejru1GcRkLWb8RlzFYJRqGUbaug==}
     dependencies:
-      '@types/node': 20.11.4
+      '@types/node': 20.11.5
     dev: true
 
   /@types/express-serve-static-core@4.17.41:
     resolution: {integrity: sha512-OaJ7XLaelTgrvlZD8/aa0vvvxZdUmlCn6MtWeB7TkiKW70BQLc9XEPpDLPdbo52ZhXUCrznlWdCHWxJWtdyajA==}
     dependencies:
-      '@types/node': 20.11.4
+      '@types/node': 20.11.5
       '@types/qs': 6.9.11
       '@types/range-parser': 1.2.7
       '@types/send': 0.17.4
@@ -700,7 +700,7 @@ packages:
   /@types/jsonwebtoken@9.0.5:
     resolution: {integrity: sha512-VRLSGzik+Unrup6BsouBeHsf4d1hOEgYWTm/7Nmw1sXoN1+tRly/Gy/po3yeahnP4jfnQWWAhQAqcNfH7ngOkA==}
     dependencies:
-      '@types/node': 20.11.4
+      '@types/node': 20.11.5
     dev: false
 
   /@types/mime@1.3.5:
@@ -711,8 +711,8 @@ packages:
     resolution: {integrity: sha512-iJt33IQnVRkqeqC7PzBHPTC6fDlRNRW8vjrgqtScAhrmMwe8c4Eo7+fUGTa+XdWrpEgpyKWMYmi2dIwMAYRzPw==}
     dev: true
 
-  /@types/node@20.11.4:
-    resolution: {integrity: sha512-6I0fMH8Aoy2lOejL3s4LhyIYX34DPwY8bl5xlNjBvUEk8OHrcuzsFt+Ied4LvJihbtXPM+8zUqdydfIti86v9g==}
+  /@types/node@20.11.5:
+    resolution: {integrity: sha512-g557vgQjUUfN76MZAN/dt1z3dzcUsimuysco0KeluHgrPdJXkP/XdAURgyO2W9fZWHRtRBiVKzKn8vyOAwlG+w==}
     dependencies:
       undici-types: 5.26.5
 
@@ -736,7 +736,7 @@ packages:
     resolution: {integrity: sha512-x2EM6TJOybec7c52BX0ZspPodMsQUd5L6PRwOunVyVUhXiBSKf3AezDL8Dgvgt5o0UfKNfuA0eMLr2wLT4AiBA==}
     dependencies:
       '@types/mime': 1.3.5
-      '@types/node': 20.11.4
+      '@types/node': 20.11.5
     dev: true
 
   /@types/serve-static@1.15.5:
@@ -744,7 +744,7 @@ packages:
     dependencies:
       '@types/http-errors': 2.0.4
       '@types/mime': 3.0.4
-      '@types/node': 20.11.4
+      '@types/node': 20.11.5
     dev: true
 
   /@types/throttle-debounce@2.1.0:
