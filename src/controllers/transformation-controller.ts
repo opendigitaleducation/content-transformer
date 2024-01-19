@@ -6,7 +6,7 @@ import { generateText } from '@tiptap/core';
 import Link from "@tiptap/extension-link";
 import { generateHTML, generateJSON } from '@tiptap/html';
 
-import { Alerts } from '@edifice-tiptap-extensions/extension-alert';
+import { Alert } from '@edifice-tiptap-extensions/extension-alert';
 import { Attachment } from '@edifice-tiptap-extensions/extension-attachment';
 import { Audio } from "@edifice-tiptap-extensions/extension-audio";
 import { Hyperlink } from '@edifice-tiptap-extensions/extension-hyperlink';
@@ -64,7 +64,7 @@ const EXTENSIONS = [
   MathJax,
   Audio,
   Templates,
-  Alerts,
+  Alert,
 ]
 
 export function transformController(req: AuthenticatedRequest, res: Response, serviceVersion: number): Promise<void> {
