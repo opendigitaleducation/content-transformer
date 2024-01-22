@@ -9,6 +9,7 @@ import { generateHTML, generateJSON } from '@tiptap/html';
 import { Alert } from '@edifice-tiptap-extensions/extension-alert';
 import { Attachment } from '@edifice-tiptap-extensions/extension-attachment';
 import { Audio } from "@edifice-tiptap-extensions/extension-audio";
+import { FontSize } from "@edifice-tiptap-extensions/extension-font-size";
 import { Hyperlink } from '@edifice-tiptap-extensions/extension-hyperlink';
 import { Iframe } from '@edifice-tiptap-extensions/extension-iframe';
 import { CustomImage } from '@edifice-tiptap-extensions/extension-image';
@@ -16,7 +17,6 @@ import { Linker } from '@edifice-tiptap-extensions/extension-linker';
 import { MathJax } from '@edifice-tiptap-extensions/extension-mathjax';
 import { TableCell } from '@edifice-tiptap-extensions/extension-table-cell';
 import { Templates } from '@edifice-tiptap-extensions/extension-templates';
-import { TypoSize } from "@edifice-tiptap-extensions/extension-typosize";
 import { Video } from '@edifice-tiptap-extensions/extension-video';
 import { Color } from '@tiptap/extension-color';
 import FontFamily from "@tiptap/extension-font-family";
@@ -52,7 +52,7 @@ const EXTENSIONS = [
     types: ["heading", "paragraph"],
   }),
   Typography,
-  TypoSize,
+  FontSize,
   Iframe,
   CustomImage,
   Video,

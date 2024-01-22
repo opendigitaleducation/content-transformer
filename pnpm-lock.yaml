@@ -7,13 +7,16 @@ settings:
 dependencies:
   '@edifice-tiptap-extensions/extension-alert':
     specifier: develop
-    version: 1.0.1-develop.125(@tiptap/core@2.1.16)(@tiptap/pm@2.1.16)
+    version: 1.0.1-develop.126(@tiptap/core@2.1.16)(@tiptap/pm@2.1.16)
   '@edifice-tiptap-extensions/extension-attachment':
     specifier: develop
     version: 1.0.1-develop.123(@tiptap/core@2.1.16)(@tiptap/pm@2.1.16)
   '@edifice-tiptap-extensions/extension-audio':
     specifier: develop
     version: 1.0.1-develop.123(@tiptap/core@2.1.16)(@tiptap/pm@2.1.16)
+  '@edifice-tiptap-extensions/extension-font-size':
+    specifier: 1.0.1-develop.116
+    version: 1.0.1-develop.116(@tiptap/core@2.1.16)(@tiptap/extension-heading@2.1.16)(@tiptap/extension-text-style@2.1.16)(@tiptap/pm@2.1.16)
   '@edifice-tiptap-extensions/extension-hyperlink':
     specifier: develop
     version: 1.0.1-develop.123(@tiptap/core@2.1.16)(@tiptap/extension-link@2.1.16)(@tiptap/pm@2.1.16)
@@ -35,9 +38,6 @@ dependencies:
   '@edifice-tiptap-extensions/extension-templates':
     specifier: develop
     version: 1.0.1-develop.123(@tiptap/core@2.1.16)(@tiptap/pm@2.1.16)
-  '@edifice-tiptap-extensions/extension-typosize':
-    specifier: develop
-    version: 1.0.1-develop.111(@tiptap/core@2.1.16)(@tiptap/extension-heading@2.1.16)(@tiptap/pm@2.1.16)
   '@edifice-tiptap-extensions/extension-video':
     specifier: develop
     version: 1.0.1-develop.123(@tiptap/core@2.1.16)(@tiptap/pm@2.1.16)
@@ -108,8 +108,8 @@ dependencies:
     specifier: ^9.0.5
     version: 9.0.5
   dotenv:
-    specifier: ^16.3.1
-    version: 16.3.1
+    specifier: ^16.3.2
+    version: 16.3.2
   express:
     specifier: ^4.18.2
     version: 4.18.2
@@ -157,8 +157,8 @@ packages:
       regenerator-runtime: 0.14.1
     dev: true
 
-  /@edifice-tiptap-extensions/extension-alert@1.0.1-develop.125(@tiptap/core@2.1.16)(@tiptap/pm@2.1.16):
-    resolution: {integrity: sha512-3nuf9LNpzRdTDkuy5rSoV7KGNzFZ97FLXUicjlsj1QmDFJQXcwSbo8xP2HBD6wNPOV/SnHa6bhjUoJDW13D5ZA==}
+  /@edifice-tiptap-extensions/extension-alert@1.0.1-develop.126(@tiptap/core@2.1.16)(@tiptap/pm@2.1.16):
+    resolution: {integrity: sha512-be9Hb4gVDnYwXxna76Bv0IVCX0ubKLcWbxUzMq0E2aBNzORWkqdkDofQ+DdK8pmEVgjK0wd5tOmIsei6AYKNmQ==}
     peerDependencies:
       '@tiptap/core': 2.0.3
       '@tiptap/pm': 2.0.3
@@ -184,6 +184,20 @@ packages:
       '@tiptap/pm': 2.0.3
     dependencies:
       '@tiptap/core': 2.1.16(@tiptap/pm@2.1.16)
+      '@tiptap/pm': 2.1.16
+    dev: false
+
+  /@edifice-tiptap-extensions/extension-font-size@1.0.1-develop.116(@tiptap/core@2.1.16)(@tiptap/extension-heading@2.1.16)(@tiptap/extension-text-style@2.1.16)(@tiptap/pm@2.1.16):
+    resolution: {integrity: sha512-Ag/vYOUlBTMdSqjZeVnM4MjmA9ejS/L86UXrpOILB5OhH2UmpNxG8bsBPG0AzYbNCiMj/nZc42wlg1FVdf8H/w==}
+    peerDependencies:
+      '@tiptap/core': 2.0.3
+      '@tiptap/extension-heading': 2.0.3
+      '@tiptap/extension-text-style': 2.0.3
+      '@tiptap/pm': 2.0.3
+    dependencies:
+      '@tiptap/core': 2.1.16(@tiptap/pm@2.1.16)
+      '@tiptap/extension-heading': 2.1.16(@tiptap/core@2.1.16)
+      '@tiptap/extension-text-style': 2.1.16(@tiptap/core@2.1.16)
       '@tiptap/pm': 2.1.16
     dev: false
 
@@ -258,19 +272,6 @@ packages:
       '@tiptap/pm': 2.0.3
     dependencies:
       '@tiptap/core': 2.1.16(@tiptap/pm@2.1.16)
-      '@tiptap/pm': 2.1.16
-    dev: false
-
-  /@edifice-tiptap-extensions/extension-typosize@1.0.1-develop.111(@tiptap/core@2.1.16)(@tiptap/extension-heading@2.1.16)(@tiptap/pm@2.1.16):
-    resolution: {integrity: sha512-B9/AZb/FzIvb4KokBM5VODAqET5EH704H9X0umxzKuKwnM83MfdUZLrj79fcSjJFbdeTU9ZAcHk+1oHx5QHH9w==}
-    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
-    peerDependencies:
-      '@tiptap/core': 2.0.3
-      '@tiptap/extension-heading': 2.0.3
-      '@tiptap/pm': 2.0.3
-    dependencies:
-      '@tiptap/core': 2.1.16(@tiptap/pm@2.1.16)
-      '@tiptap/extension-heading': 2.1.16(@tiptap/core@2.1.16)
       '@tiptap/pm': 2.1.16
     dev: false
 
@@ -1082,8 +1083,8 @@ packages:
     engines: {node: '>= 0.8', npm: 1.2.8000 || >= 1.4.16}
     dev: false
 
-  /dotenv@16.3.1:
-    resolution: {integrity: sha512-IPzF4w4/Rd94bA9imS68tZBaYyBWSCE47V1RGuMrB94iyTOIEwRmVL2x/4An+6mETpLrKJ5hQkB8W4kFAadeIQ==}
+  /dotenv@16.3.2:
+    resolution: {integrity: sha512-HTlk5nmhkm8F6JcdXvHIzaorzCoziNQT9mGxLPVXW8wJF1TiGSL60ZGB4gHWabHOaMmWmhvk2/lPHfnBiT78AQ==}
     engines: {node: '>=12'}
     dev: false
 
