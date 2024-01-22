@@ -1,6 +1,8 @@
 import { Response } from 'express';
 import { TransformationFormat } from '../models/format.js';
 import { AuthenticatedRequest, ContentTransformerRequest, ContentTransformerResponse } from '../models/transformation-request.js';
+import TableOrTemplate from '../models/TableOrTemplate.js';
+import TableOrTemplateCell from '../models/TableOrTemplateCell.js';
 
 import { generateText } from '@tiptap/core';
 import Link from "@tiptap/extension-link";
@@ -15,7 +17,6 @@ import { Iframe } from '@edifice-tiptap-extensions/extension-iframe';
 import { CustomImage } from '@edifice-tiptap-extensions/extension-image';
 import { Linker } from '@edifice-tiptap-extensions/extension-linker';
 import { MathJax } from '@edifice-tiptap-extensions/extension-mathjax';
-import { TableCell } from '@edifice-tiptap-extensions/extension-table-cell';
 import { Templates } from '@edifice-tiptap-extensions/extension-templates';
 import { Video } from '@edifice-tiptap-extensions/extension-video';
 import { Color } from '@tiptap/extension-color';
@@ -23,7 +24,6 @@ import FontFamily from "@tiptap/extension-font-family";
 import Highlight from "@tiptap/extension-highlight";
 import Subscript from "@tiptap/extension-subscript";
 import Superscript from "@tiptap/extension-superscript";
-import Table from '@tiptap/extension-table';
 import TableHeader from '@tiptap/extension-table-header';
 import TableRow from '@tiptap/extension-table-row';
 import TextAlign from "@tiptap/extension-text-align";
@@ -44,10 +44,10 @@ const EXTENSIONS = [
   Color,
   Subscript,
   Superscript,
-  Table,
+  TableOrTemplate,
   TableRow,
   TableHeader,
-  TableCell,
+  TableOrTemplateCell,
   TextAlign.configure({
     types: ["heading", "paragraph"],
   }),
