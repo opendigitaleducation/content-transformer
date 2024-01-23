@@ -13,6 +13,7 @@
     "@edifice-tiptap-extensions/extension-table-cell": "develop",
     "@edifice-tiptap-extensions/extension-templates": "develop",
     "@edifice-tiptap-extensions/extension-video": "develop",
+    "@edifice-tiptap-extensions/extension-highlight": "develop",
     "@tiptap/core": "^2.1.16",
     "@tiptap/extension-color": "^2.1.16",
     "@tiptap/extension-font-family": "^2.1.16",
