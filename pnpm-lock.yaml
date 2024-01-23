@@ -17,6 +17,9 @@ dependencies:
   '@edifice-tiptap-extensions/extension-font-size':
     specifier: develop
     version: 1.0.1-develop.123(@tiptap/core@2.0.3)(@tiptap/extension-heading@2.0.3)(@tiptap/extension-text-style@2.0.3)(@tiptap/pm@2.0.3)
+  '@edifice-tiptap-extensions/extension-highlight':
+    specifier: develop
+    version: 1.0.1-develop.131(@tiptap/core@2.0.3)(@tiptap/extension-highlight@2.0.3)(@tiptap/pm@2.0.3)
   '@edifice-tiptap-extensions/extension-hyperlink':
     specifier: develop
     version: 1.0.1-develop.123(@tiptap/core@2.0.3)(@tiptap/extension-link@2.0.3)(@tiptap/pm@2.0.3)
@@ -26,6 +29,9 @@ dependencies:
   '@edifice-tiptap-extensions/extension-image':
     specifier: develop
     version: 1.0.1-develop.123(@tiptap/core@2.0.3)(@tiptap/pm@2.0.3)
+  '@edifice-tiptap-extensions/extension-line-height':
+    specifier: develop
+    version: 1.0.1-develop.132(@tiptap/core@2.0.3)(@tiptap/extension-text-style@2.0.3)(@tiptap/pm@2.0.3)
   '@edifice-tiptap-extensions/extension-linker':
     specifier: develop
     version: 1.0.1-develop.123(@tiptap/core@2.0.3)(@tiptap/extension-link@2.0.3)(@tiptap/pm@2.0.3)
@@ -224,6 +230,18 @@ packages:
       '@tiptap/pm': 2.0.3(@tiptap/core@2.0.3)
     dev: false
 
+  /@edifice-tiptap-extensions/extension-highlight@1.0.1-develop.131(@tiptap/core@2.0.3)(@tiptap/extension-highlight@2.0.3)(@tiptap/pm@2.0.3):
+    resolution: {integrity: sha512-u3pLJNYs6Cne7GekEB0bAzIue8hdPo7a3PscUDip3X0DOkTfELQyVUAoa4KqjL8/64DiXAtDz9EDMGNJvlw3wA==}
+    peerDependencies:
+      '@tiptap/core': 2.0.3
+      '@tiptap/extension-highlight': 2.0.3
+      '@tiptap/pm': 2.0.3
+    dependencies:
+      '@tiptap/core': 2.0.3(@tiptap/pm@2.0.3)
+      '@tiptap/extension-highlight': 2.0.3(@tiptap/core@2.0.3)
+      '@tiptap/pm': 2.0.3(@tiptap/core@2.0.3)
+    dev: false
+
   /@edifice-tiptap-extensions/extension-hyperlink@1.0.1-develop.123(@tiptap/core@2.0.3)(@tiptap/extension-link@2.0.3)(@tiptap/pm@2.0.3):
     resolution: {integrity: sha512-bMzqJbm0dAOWuUJ1GWWuQkEYsDPKjF54PU5sAPFBb4pMExSNzf73kqFuCHAiFctcJ84/LUVFEptapLAkVKozIA==}
     peerDependencies:
@@ -253,6 +271,18 @@ packages:
       '@tiptap/pm': 2.0.3
     dependencies:
       '@tiptap/core': 2.0.3(@tiptap/pm@2.0.3)
+      '@tiptap/pm': 2.0.3(@tiptap/core@2.0.3)
+    dev: false
+
+  /@edifice-tiptap-extensions/extension-line-height@1.0.1-develop.132(@tiptap/core@2.0.3)(@tiptap/extension-text-style@2.0.3)(@tiptap/pm@2.0.3):
+    resolution: {integrity: sha512-Ji9t4ceumtdjniGrdDh7XHbYzErlKrHQQM8/VloFrKDQdjJS8kuLLCq48hoxkQulFUZ5wYtjSt7SoixazYL6sA==}
+    peerDependencies:
+      '@tiptap/core': 2.0.3
+      '@tiptap/extension-text-style': 2.0.3
+      '@tiptap/pm': 2.0.3
+    dependencies:
+      '@tiptap/core': 2.0.3(@tiptap/pm@2.0.3)
+      '@tiptap/extension-text-style': 2.0.3(@tiptap/core@2.0.3)
       '@tiptap/pm': 2.0.3(@tiptap/core@2.0.3)
     dev: false
 
