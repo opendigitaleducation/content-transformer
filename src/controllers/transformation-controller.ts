@@ -3,6 +3,7 @@ import { TransformationFormat } from '../models/format.js';
 import { AuthenticatedRequest, ContentTransformerRequest, ContentTransformerResponse } from '../models/transformation-request.js';
 import TableOrTemplate from '../models/TableOrTemplate.js';
 import TableOrTemplateCell from '../models/TableOrTemplateCell.js';
+import CustomHighlight from '../models/CustomHighlight.js';
 
 import { generateText } from '@tiptap/core';
 import Link from "@tiptap/extension-link";
@@ -21,7 +22,6 @@ import { Templates } from '@edifice-tiptap-extensions/extension-templates';
 import { Video } from '@edifice-tiptap-extensions/extension-video';
 import { Color } from '@tiptap/extension-color';
 import FontFamily from "@tiptap/extension-font-family";
-import Highlight from "@tiptap/extension-highlight";
 import Subscript from "@tiptap/extension-subscript";
 import Superscript from "@tiptap/extension-superscript";
 import TableHeader from '@tiptap/extension-table-header';
@@ -36,9 +36,7 @@ import { cleanHtmlCounter, cleanHtmlTimer, cleanJsonCounter, cleanJsonTimer, h2j
 
 const EXTENSIONS = [
   StarterKit,
-  Highlight.configure({
-    multicolor: true,
-  }),
+  CustomHighlight,
   Underline,
   TextStyle,
   Color,
