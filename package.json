@@ -33,6 +33,7 @@
     "@edifice-tiptap-extensions/extension-table-cell": "develop",
     "@edifice-tiptap-extensions/extension-templates": "develop",
     "@edifice-tiptap-extensions/extension-video": "develop",
+    "@edifice-tiptap-extensions/extension-line-height": "develop",
     "@tiptap/core": "2.0.3",
     "@tiptap/extension-color": "2.0.3",
     "@tiptap/extension-font-family": "2.0.3",

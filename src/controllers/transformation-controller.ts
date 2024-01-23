@@ -16,6 +16,7 @@ import { Alert } from '@edifice-tiptap-extensions/extension-alert';
 import { Attachment } from '@edifice-tiptap-extensions/extension-attachment';
 import { Audio } from '@edifice-tiptap-extensions/extension-audio';
 import { FontSize } from '@edifice-tiptap-extensions/extension-font-size';
+import { LineHeight } from '@edifice-tiptap-extensions/extension-line-height';
 import { Hyperlink } from '@edifice-tiptap-extensions/extension-hyperlink';
 import { Iframe } from '@edifice-tiptap-extensions/extension-iframe';
 import { CustomImage } from '@edifice-tiptap-extensions/extension-image';
@@ -70,6 +71,7 @@ const EXTENSIONS = [
   }),
   Typography,
   FontSize,
+  LineHeight,
   Iframe,
   CustomImage,
   Video,
