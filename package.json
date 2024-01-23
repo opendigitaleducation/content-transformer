@@ -1,5 +1,25 @@
 {
+  "name": "rich-content-transformer",
+  "version": "0.0.7",
+  "description": "Uses TipTap library to transform HTML to JSON and back",
+  "license": "ISC",
+  "author": "OpenDigitalEducation",
   "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx tsc",
+    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\"",
+    "format": "pnpm run format:write && pnpm run format:check",
+    "format:check": "prettier --check 'src/**/*.ts'",
+    "format:write": "prettier --write 'src/**/*.ts'",
+    "preinstall": "npx only-allow pnpm",
+    "lint": "eslint src --ext ts --report-unused-disable-directives --max-warnings 0",
+    "fix": "eslint src --fix --ext ts --report-unused-disable-directives --max-warnings 0",
+    "pre-commit": "pnpm lint && pnpm format",
+    "prepare": "husky install",
+    "start": "node dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
     "@edifice-tiptap-extensions/extension-alert": "develop",
     "@edifice-tiptap-extensions/extension-attachment": "develop",
@@ -41,24 +61,17 @@
     "jsonwebtoken": "^9.0.2",
     "prom-client": "^14.2.0"
   },
-  "name": "rich-content-transformer",
-  "version": "0.0.7",
-  "description": "Uses TipTap library to transform HTML to JSON and back",
-  "main": "index.js",
-  "scripts": {
-    "preinstall": "npx only-allow pnpm",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npx tsc",
-    "start": "node dist/index.js",
-    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\""
-  },
-  "author": "Edifice",
-  "license": "AGPL-3.0",
   "devDependencies": {
     "@types/express": "^4.17.21",
     "@types/node": "^20.11.5",
+    "@typescript-eslint/eslint-plugin": "5.59.0",
+    "@typescript-eslint/parser": "5.59.0",
     "concurrently": "^8.2.2",
+    "eslint": "8.38.0",
+    "husky": "^8.0.0",
     "nodemon": "^2.0.22",
+    "prettier": "2.8.8",
+    "turbo": "1.10.7",
     "typescript": "^5.3.3"
   },
   "packageManager": "pnpm@8.6.6",

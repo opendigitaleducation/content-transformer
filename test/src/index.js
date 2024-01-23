@@ -1,23 +1,24 @@
-import http from "k6/http";
-import { check } from "k6";
-import chai, { describe } from "https://jslib.k6.io/k6chaijs/4.3.4.2/index.js";
-import { SharedArray } from "k6/data";
+/* eslint-disable no-undef */
+import http from 'k6/http';
+import { check } from 'k6';
+import chai, { describe } from 'https://jslib.k6.io/k6chaijs/4.3.4.2/index.js';
+import { SharedArray } from 'k6/data';
 
 const rootUrl = __ENV.ROOT_URL;
 const dataRootPath = __ENV.DATA_ROOT_PATH;
-const duration = __ENV.DURATION || "60s";
-const vus = parseInt(__ENV.VUS || "1");
+const duration = __ENV.DURATION || '60s';
+const vus = parseInt(__ENV.VUS || '1');
 
 chai.config.logFailures = true;
 
 export const options = {
   thresholds: {
-    checks: ["rate > 0.75"],
+    checks: ['rate > 0.75'],
   },
   scenarios: {
     start_lot_of_modifications: {
-      exec: "loadALot",
-      executor: "constant-vus",
+      exec: 'loadALot',
+      executor: 'constant-vus',
       vus,
       duration,
     },
@@ -25,61 +26,61 @@ export const options = {
 };
 
 const jsonHeaders = {
-  headers: { "Content-Type": "application/json" },
+  headers: { 'Content-Type': 'application/json' },
 };
 
-const smallHtmls = new SharedArray("smallHtmls", function () {
+const smallHtmls = new SharedArray('smallHtmls', function () {
   return [1, 2, 3, 4]
     .map((i) => `${dataRootPath}/small/00${i}.html`)
     .map((path) => open(path));
 });
 
-const bigHtmls = new SharedArray("bigHtmls", function () {
+const bigHtmls = new SharedArray('bigHtmls', function () {
   return [1, 2, 3, 4]
     .map((i) => `${dataRootPath}/big/00${i}.html`)
     .map((path) => open(path));
 });
 
 export function loadALot() {
-  describe("[RTE][Small] HTML to JSON conversion", () => {
+  describe('[RTE][Small] HTML to JSON conversion', () => {
     const response = http.post(
       `${rootUrl}/transform`,
-      getRequest(smallHtmls, ["json"]),
-      jsonHeaders
+      getRequest(smallHtmls, ['json']),
+      jsonHeaders,
     );
     check(response, {
-      "could transform Small HTML to JSON": (r) => r.status == 200,
+      'could transform Small HTML to JSON': (r) => r.status == 200,
     });
   });
-  describe("[RTE][Big] HTML to JSON conversion", () => {
+  describe('[RTE][Big] HTML to JSON conversion', () => {
     const response = http.post(
       `${rootUrl}/transform`,
-      getRequest(bigHtmls, ["json"]),
-      jsonHeaders
+      getRequest(bigHtmls, ['json']),
+      jsonHeaders,
     );
     check(response, {
-      "could transform Big HTML to JSON": (r) => r.status == 200,
+      'could transform Big HTML to JSON': (r) => r.status == 200,
     });
   });
-  describe("[RTE][Small] HTML to JSON and plain text conversion", () => {
+  describe('[RTE][Small] HTML to JSON and plain text conversion', () => {
     const response = http.post(
       `${rootUrl}/transform`,
-      getRequest(smallHtmls, ["json", "plainText"]),
-      jsonHeaders
+      getRequest(smallHtmls, ['json', 'plainText']),
+      jsonHeaders,
     );
     check(response, {
-      "could transform Small HTML to JSON and plain text": (r) =>
+      'could transform Small HTML to JSON and plain text': (r) =>
         r.status == 200,
     });
   });
-  describe("[RTE][Big] HTML to JSON and plain text conversion", () => {
+  describe('[RTE][Big] HTML to JSON and plain text conversion', () => {
     const response = http.post(
       `${rootUrl}/transform`,
-      getRequest(bigHtmls, ["json", "plainText"]),
-      jsonHeaders
+      getRequest(bigHtmls, ['json', 'plainText']),
+      jsonHeaders,
     );
     check(response, {
-      "could transform Big HTML to JSON and plain text": (r) => r.status == 200,
+      'could transform Big HTML to JSON and plain text': (r) => r.status == 200,
     });
   });
 }
