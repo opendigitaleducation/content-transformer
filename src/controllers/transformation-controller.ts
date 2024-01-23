@@ -12,6 +12,7 @@ import { generateText } from '@tiptap/core';
 import Link from '@tiptap/extension-link';
 import { generateHTML, generateJSON } from '@tiptap/html';
 
+import { CustomHighlight } from '@edifice-tiptap-extensions/extension-highlight';
 import { Alert } from '@edifice-tiptap-extensions/extension-alert';
 import { Attachment } from '@edifice-tiptap-extensions/extension-attachment';
 import { Audio } from '@edifice-tiptap-extensions/extension-audio';
@@ -25,7 +26,6 @@ import { Templates } from '@edifice-tiptap-extensions/extension-templates';
 import { Video } from '@edifice-tiptap-extensions/extension-video';
 import { Color } from '@tiptap/extension-color';
 import FontFamily from '@tiptap/extension-font-family';
-import Highlight from '@tiptap/extension-highlight';
 import Subscript from '@tiptap/extension-subscript';
 import Superscript from '@tiptap/extension-superscript';
 import TableHeader from '@tiptap/extension-table-header';
@@ -53,9 +53,7 @@ import {
 
 const EXTENSIONS = [
   StarterKit,
-  Highlight.configure({
-    multicolor: true,
-  }),
+  CustomHighlight,
   Underline,
   TextStyle,
   Color,
