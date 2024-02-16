@@ -50,7 +50,6 @@ import {
   j2plainTextTimer,
   updateCounterAndTimer,
 } from './metrics-controller.js';
-import { AlignDiv } from '../models/AlignDiv.js';
 
 const EXTENSIONS = [
   StarterKit,
@@ -64,7 +63,7 @@ const EXTENSIONS = [
   TableRow,
   TableHeader,
   TableOrTemplateCell,
-  AlignDiv,
+  //AlignDiv,
   TextAlign.configure({
     types: ['heading', 'paragraph'],
   }),
