@@ -23,7 +23,6 @@ import { Iframe } from '@edifice-tiptap-extensions/extension-iframe';
 import { CustomImage } from '@edifice-tiptap-extensions/extension-image';
 import { Linker } from '@edifice-tiptap-extensions/extension-linker';
 import { MathJax } from '@edifice-tiptap-extensions/extension-mathjax';
-import { Templates } from '@edifice-tiptap-extensions/extension-templates';
 import { Video } from '@edifice-tiptap-extensions/extension-video';
 import { Color } from '@tiptap/extension-color';
 import FontFamily from '@tiptap/extension-font-family';
@@ -82,7 +81,6 @@ const EXTENSIONS = [
   FontFamily,
   MathJax,
   Audio,
-  Templates,
   Alert,
 ];
 
