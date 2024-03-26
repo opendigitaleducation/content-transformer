@@ -32,6 +32,7 @@
     "@edifice-tiptap-extensions/extension-line-height": "develop",
     "@edifice-tiptap-extensions/extension-linker": "develop",
     "@edifice-tiptap-extensions/extension-mathjax": "develop",
+    "@edifice-tiptap-extensions/extension-paragraph": "develop",
     "@edifice-tiptap-extensions/extension-table-cell": "develop",
     "@edifice-tiptap-extensions/extension-video": "develop",
     "@tiptap/core": "2.0.3",

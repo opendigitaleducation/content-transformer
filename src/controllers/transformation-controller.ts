@@ -12,6 +12,7 @@ import { generateText } from '@tiptap/core';
 import Link from '@tiptap/extension-link';
 import { generateHTML, generateJSON } from '@tiptap/html';
 
+import { Paragraph } from "@edifice-tiptap-extensions/extension-paragraph";
 import { CustomHighlight } from '@edifice-tiptap-extensions/extension-highlight';
 import { Alert } from '@edifice-tiptap-extensions/extension-alert';
 import { Attachment } from '@edifice-tiptap-extensions/extension-attachment';
@@ -52,7 +53,8 @@ import {
 } from './metrics-controller.js';
 
 const EXTENSIONS = [
-  StarterKit,
+  StarterKit.configure({ paragraph: false }),
+  Paragraph,
   CustomHighlight,
   Underline,
   TextStyle,
@@ -65,7 +67,7 @@ const EXTENSIONS = [
   TableOrTemplateCell,
   //AlignDiv,
   TextAlign.configure({
-    types: ['heading', 'paragraph'],
+    types: ["heading", "paragraph", "custom-image", "video"],
   }),
   Typography,
   FontSize,
