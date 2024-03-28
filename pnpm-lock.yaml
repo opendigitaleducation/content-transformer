@@ -17,6 +17,9 @@ dependencies:
   '@edifice-tiptap-extensions/extension-font-size':
     specifier: develop
     version: 1.0.1-develop.142(@tiptap/core@2.0.3)(@tiptap/extension-heading@2.0.3)(@tiptap/extension-text-style@2.0.3)(@tiptap/pm@2.0.3)
+  '@edifice-tiptap-extensions/extension-heading':
+    specifier: develop
+    version: 1.0.1-develop.142(@tiptap/core@2.0.3)(@tiptap/extension-heading@2.0.3)(@tiptap/extension-text-style@2.0.3)(@tiptap/pm@2.0.3)
   '@edifice-tiptap-extensions/extension-highlight':
     specifier: develop
     version: 1.0.1-develop.142(@tiptap/core@2.0.3)(@tiptap/extension-highlight@2.0.3)(@tiptap/pm@2.0.3)
@@ -218,6 +221,20 @@ packages:
 
   /@edifice-tiptap-extensions/extension-font-size@1.0.1-develop.142(@tiptap/core@2.0.3)(@tiptap/extension-heading@2.0.3)(@tiptap/extension-text-style@2.0.3)(@tiptap/pm@2.0.3):
     resolution: {integrity: sha512-P9lTsy1ANYECkVZUTFPDSr47ajEzUMR4/9vxgMlqFnb0QQLxOR91JG13dWyFk103HyfQjDdUv457xGzTyqOkog==}
+    peerDependencies:
+      '@tiptap/core': 2.0.3
+      '@tiptap/extension-heading': 2.0.3
+      '@tiptap/extension-text-style': 2.0.3
+      '@tiptap/pm': 2.0.3
+    dependencies:
+      '@tiptap/core': 2.0.3(@tiptap/pm@2.0.3)
+      '@tiptap/extension-heading': 2.0.3(@tiptap/core@2.0.3)
+      '@tiptap/extension-text-style': 2.0.3(@tiptap/core@2.0.3)
+      '@tiptap/pm': 2.0.3(@tiptap/core@2.0.3)
+    dev: false
+
+  /@edifice-tiptap-extensions/extension-heading@1.0.1-develop.142(@tiptap/core@2.0.3)(@tiptap/extension-heading@2.0.3)(@tiptap/extension-text-style@2.0.3)(@tiptap/pm@2.0.3):
+    resolution: {integrity: sha512-0G/NBkV0+pqrUnSvNf/T2Vus0bZXQSP+upNa8FTPxhL98v5NxAlHZE+IREuOTrdFGWHK2+vgPEm9HGDk5IFFBw==}
     peerDependencies:
       '@tiptap/core': 2.0.3
       '@tiptap/extension-heading': 2.0.3
