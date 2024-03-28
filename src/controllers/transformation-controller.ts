@@ -9,7 +9,6 @@ import TableOrTemplate from '../models/TableOrTemplate.js';
 import TableOrTemplateCell from '../models/TableOrTemplateCell.js';
 
 import { generateText } from '@tiptap/core';
-import Link from '@tiptap/extension-link';
 import { generateHTML, generateJSON } from '@tiptap/html';
 
 import { Paragraph } from '@edifice-tiptap-extensions/extension-paragraph';
@@ -51,11 +50,14 @@ import {
   j2plainTextTimer,
   updateCounterAndTimer,
 } from './metrics-controller.js';
+import CustomHeading from '@edifice-tiptap-extensions/extension-heading';
 
 const EXTENSIONS = [
   StarterKit.configure({ paragraph: false }),
   Paragraph,
-  CustomHighlight,
+  CustomHighlight.configure({
+    multicolor: true,
+  }),
   Underline,
   TextStyle,
   Color,
@@ -65,24 +67,25 @@ const EXTENSIONS = [
   TableRow,
   TableHeader,
   TableOrTemplateCell,
-  //AlignDiv,
   TextAlign.configure({
     types: ['heading', 'paragraph', 'custom-image', 'video'],
+  }),
+  CustomHeading.configure({
+    levels: [1, 2],
   }),
   Typography,
   FontSize,
   LineHeight,
   Iframe,
-  CustomImage,
-  Video,
-  Attachment,
-  Linker,
   Hyperlink,
-  Link,
   FontFamily,
   MathJax,
-  Audio,
   Alert,
+  Video,
+  Audio,
+  Linker,
+  CustomImage,
+  Attachment,
 ];
 
 export function transformController(
