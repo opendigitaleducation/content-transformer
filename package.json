@@ -62,11 +62,11 @@
     "express": "^4.19.2",
     "global-jsdom": "^9.2.0",
     "jsonwebtoken": "^9.0.2",
-    "prom-client": "^15.1.1"
+    "prom-client": "^15.1.2"
   },
   "devDependencies": {
     "@types/express": "^4.17.21",
-    "@types/node": "^20.11.30",
+    "@types/node": "^20.12.7",
     "@typescript-eslint/eslint-plugin": "6.19.1",
     "@typescript-eslint/parser": "6.19.1",
     "concurrently": "^8.2.2",
