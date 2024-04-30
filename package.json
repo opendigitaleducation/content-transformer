@@ -1,6 +1,6 @@
 {
   "name": "rich-content-transformer",
-  "version": "0.0.7",
+  "version": "1.0.0",
   "description": "Uses TipTap library to transform HTML to JSON and back",
   "license": "ISC",
   "author": "OpenDigitalEducation",
