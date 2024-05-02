@@ -139,6 +139,8 @@ devDependencies:
   '@types/node':
     specifier: ^20.12.8
     version: 20.12.8
+    specifier: ^20.12.8
+    version: 20.12.8
   '@typescript-eslint/eslint-plugin':
     specifier: 6.19.1
     version: 6.19.1(@typescript-eslint/parser@6.19.1)(eslint@8.56.0)(typescript@5.3.3)
@@ -276,8 +278,8 @@ packages:
       '@tiptap/pm': 2.0.3(@tiptap/core@2.0.3)
     dev: false
 
-  /@edifice-tiptap-extensions/extension-image@1.5.4-develop.6(@tiptap/core@2.0.3)(@tiptap/pm@2.0.3):
-    resolution: {integrity: sha512-AmXO9t8UQr2XGVJsMTBVHPZSDNfFY7mp9+djfggbqc+GxO0lw7tzD17wjAyoQSWbNNtkCFswfDvQlY4T/dW5Iw==}
+  /@edifice-tiptap-extensions/extension-image@1.5.4-develop-b2school.1(@tiptap/core@2.0.3)(@tiptap/pm@2.0.3):
+    resolution: {integrity: sha512-Pg81gTH2EvTeLJ11k7OcIysw9QlOxEg3Kuw/aRleo8otUiNJ/VlxesDExThcG1pPiD6Z9TSbhJc+frX+Dsan/Q==}
     peerDependencies:
       '@tiptap/core': 2.3.0
       '@tiptap/pm': 2.3.0
