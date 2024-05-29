@@ -5,6 +5,9 @@ import cluster from "cluster";
 import os from "os";
 import createServer from "./src/server.js";
 import { AggregatorRegistry } from "prom-client";
+import fs from 'fs';
+
+createPidFile();
 
 dotenv.config();
 
@@ -45,3 +48,22 @@ if (cluster.isPrimary && desiredInstances > 1) {
 } else {
   createServer();
 }
+function createPidFile() {
+  const path = process.env.PID_FILE;
+  if(path) {
+    if(fs.existsSync(path)) {
+      console.log(`msg="Deleting old pid file" path=${path}`)
+      fs.unlinkSync(path);
+    }
+    console.log(`msg="Writting pid file" path=${path}`)
+    // Write PID file
+    fs.writeFileSync(path, process.pid.toString(), { flag: 'w' });
+
+    process.on('exit', () => {
+      // Remove PID file on exit
+      console.log(`msg="Removing olf pid file after exit" path=${path}`)
+      fs.unlinkSync(path);
+    });
+  }
+}
+
