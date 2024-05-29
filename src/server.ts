@@ -1,6 +1,9 @@
 import express, { Express, Request, Response } from 'express';
 import 'global-jsdom/register';
-import { transformController } from './controllers/transformation-controller.js';
+import {
+  healthCheck,
+  transformController,
+} from './controllers/transformation-controller.js';
 import { initMetrics } from './controllers/metrics-controller.js';
 
 export default function createServer() {
@@ -38,6 +41,9 @@ export default function createServer() {
 
   app.post('/transform', (req: Request, res: Response) => {
     transformController(req, res, serviceVersion);
+  });
+  app.get('/healthcheck', (req: Request, res: Response) => {
+    healthCheck(res);
   });
 
   app.listen(port, () => {
