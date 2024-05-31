@@ -21,13 +21,13 @@ const desiredInstances = process.env.NB_THREADS
 const metricsPort = process.env.METRICS_PORT || 3001;
 
 if (cluster.isPrimary && desiredInstances > 1) {
-  console.log(`Launching ${desiredInstances} instances of the transformer`);
+  console.log(`msg="Launching ${desiredInstances} instances of the transformer"`);
   // Fork workers for each CPU core
   for (let i = 0; i < desiredInstances; i++) {
     cluster.fork();
   }
   cluster.on("exit", (worker: any, code: number, signal: any) => {
-    console.log(`Worker ${worker.process.pid} died`);
+    console.log(`msg="Worker died" pid=${worker.process.pid}"`);
   });
 
   metricsServer.get("/metrics", async (req, res) => {
@@ -43,7 +43,7 @@ if (cluster.isPrimary && desiredInstances > 1) {
   });
   metricsServer.listen(metricsPort);
   console.log(
-    `Cluster metrics server listening to ${metricsPort}, metrics exposed on /metrics`
+    `msg="Cluster metrics server listening to ${metricsPort}, metrics exposed on /metrics"`
   );
 } else {
   createServer();

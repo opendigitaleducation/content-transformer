@@ -26,7 +26,3 @@ export function authenticateToken(
     next();
   });
 }
-
-export function toto() {
-  console.log('toto');
-}
