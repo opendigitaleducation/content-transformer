@@ -6,6 +6,11 @@ import {
 } from './controllers/transformation-controller.js';
 import { initMetrics } from './controllers/metrics-controller.js';
 
+// @ts-ignore
+global.CSS = {
+  // @ts-ignore
+  escape: (elt) => elt, // @ts-ignore
+};
 export default function createServer() {
   console.log(`msg="Launching instance of the transformer"`);
 
