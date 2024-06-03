@@ -123,6 +123,12 @@ To access metrics:
 curl -L -X GET 'http://localhost:3000/metrics'
 ```
 
+Healthcheck :
+
+```shell
+curl -L -X GET 'http://localhost:3000/healthcheck'
+```
+
 ## Load testing
 
 ## Description

@@ -1,10 +1,18 @@
 import express, { Express, Request, Response } from 'express';
 import 'global-jsdom/register';
-import { transformController } from './controllers/transformation-controller.js';
+import {
+  healthCheck,
+  transformController,
+} from './controllers/transformation-controller.js';
 import { initMetrics } from './controllers/metrics-controller.js';
 
+// @ts-ignore
+global.CSS = {
+  // @ts-ignore
+  escape: (elt) => elt, // @ts-ignore
+};
 export default function createServer() {
-  console.log(`Launching instance of the transformer`);
+  console.log(`msg="Launching instance of the transformer"`);
 
   const app: Express = express();
   const port = process.env.PORT || 3000;
@@ -21,14 +29,22 @@ export default function createServer() {
   app.use(express.json(expressOptions));
   app.use(
     (
-      err: Error,
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      err: any,
       req: Request,
       res: express.Response,
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       next: express.NextFunction,
     ) => {
-      console.error(err.stack);
-      res.status(500).json({ error: 'internal.server.error' });
+      if (err.status === 413 || err.type === 'entity.too.large') {
+        console.warn(`msg="payload.too.large"`);
+        res.status(413).send('payload.too.large');
+      } else {
+        console.warn(
+          `msg="unhandled.error" type="${err.type}" status="${err.status}" stack="${stringifyStackTrace(err.stack)}"`,
+        );
+        res.status(500).json({ error: 'internal.server.error' });
+      }
     },
   );
 
@@ -39,8 +55,20 @@ export default function createServer() {
   app.post('/transform', (req: Request, res: Response) => {
     transformController(req, res, serviceVersion);
   });
+  app.get('/healthcheck', (req: Request, res: Response) => {
+    healthCheck(res);
+  });
 
   app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`);
+    console.log(`msg="Example app listening on port ${port}"`);
   });
+}
+function stringifyStackTrace(stack: string) {
+  let stringified;
+  if (stack) {
+    stringified = stack.replace(/"/g, '"').replace(/\n/g, '\\\\n');
+  } else {
+    stringified = '';
+  }
+  return stringified;
 }

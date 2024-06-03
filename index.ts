@@ -5,6 +5,9 @@ import cluster from "cluster";
 import os from "os";
 import createServer from "./src/server.js";
 import { AggregatorRegistry } from "prom-client";
+import fs from 'fs';
+
+createPidFile();
 
 dotenv.config();
 
@@ -18,13 +21,13 @@ const desiredInstances = process.env.NB_THREADS
 const metricsPort = process.env.METRICS_PORT || 3001;
 
 if (cluster.isPrimary && desiredInstances > 1) {
-  console.log(`Launching ${desiredInstances} instances of the transformer`);
+  console.log(`msg="Launching ${desiredInstances} instances of the transformer"`);
   // Fork workers for each CPU core
   for (let i = 0; i < desiredInstances; i++) {
     cluster.fork();
   }
   cluster.on("exit", (worker: any, code: number, signal: any) => {
-    console.log(`Worker ${worker.process.pid} died`);
+    console.log(`msg="Worker died" pid=${worker.process.pid}"`);
   });
 
   metricsServer.get("/metrics", async (req, res) => {
@@ -40,8 +43,27 @@ if (cluster.isPrimary && desiredInstances > 1) {
   });
   metricsServer.listen(metricsPort);
   console.log(
-    `Cluster metrics server listening to ${metricsPort}, metrics exposed on /metrics`
+    `msg="Cluster metrics server listening to ${metricsPort}, metrics exposed on /metrics"`
   );
 } else {
   createServer();
 }
+function createPidFile() {
+  const path = process.env.PID_FILE;
+  if(path) {
+    if(fs.existsSync(path)) {
+      console.log(`msg="Deleting old pid file" path=${path}`)
+      fs.unlinkSync(path);
+    }
+    console.log(`msg="Writting pid file" path=${path}`)
+    // Write PID file
+    fs.writeFileSync(path, process.pid.toString(), { flag: 'w' });
+
+    process.on('exit', () => {
+      // Remove PID file on exit
+      console.log(`msg="Removing olf pid file after exit" path=${path}`)
+      fs.unlinkSync(path);
+    });
+  }
+}
+

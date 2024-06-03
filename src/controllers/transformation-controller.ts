@@ -168,3 +168,51 @@ export function transformController(
     return Promise.resolve();
   }
 }
+
+export function healthCheck(res: Response) {
+  let result: { success: boolean; message: string } = {
+    success: true,
+    message: 'ok',
+  };
+  let resCode = 200;
+  try {
+    generateJSON(SAMPLE_HTML, EXTENSIONS);
+  } catch (e) {
+    console.error(`msg="Cannot generate json"`);
+    console.error(e);
+    resCode = 500;
+    result = { success: false, message: 'cannot.generate.json' };
+  }
+  if (resCode === 200) {
+    try {
+      generateHTML(SAMPLE_JSON, EXTENSIONS);
+    } catch (e) {
+      console.error(`msg="Cannot generate json"`);
+      console.error(e);
+      resCode = 500;
+      result = { success: false, message: 'cannot.generate.html' };
+    }
+  }
+  res.status(resCode);
+  res.json(result);
+}
+
+const SAMPLE_JSON = {
+  type: 'doc',
+  content: [
+    {
+      type: 'paragraph',
+      attrs: {
+        textAlign: 'left',
+      },
+      content: [
+        {
+          type: 'text',
+          text: 'Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page',
+        },
+      ],
+    },
+  ],
+};
+
+const SAMPLE_HTML = '<div>Hello world</div>';
