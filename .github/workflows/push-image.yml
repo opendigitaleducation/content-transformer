@@ -20,6 +20,7 @@ permissions:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
+  HUSKY: 0
 
 jobs:
   build:
