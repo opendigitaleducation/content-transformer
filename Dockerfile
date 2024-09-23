@@ -1,5 +1,7 @@
 FROM node as builder
 
+ENV HUSKY 0
+
 # Install pnpm
 RUN npm install -g pnpm
 
@@ -28,6 +30,8 @@ WORKDIR /usr/src/app
 
 # Install app dependencies
 COPY package*.json pnpm-lock.yaml ./
+
+ENV HUSKY 0
 
 RUN pnpm i --frozen-lockfile --production
 
