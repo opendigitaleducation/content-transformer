@@ -90,7 +90,7 @@ const EXTENSIONS = [
 
 function cleanIrregularCharacters(htmlString: string) {
   // Delete empty inline style attributes
-  htmlString = htmlString.replace(/ style="[^"]*"/g, '');
+  htmlString = htmlString.replace(/ style=""/g, '');
 
   // Delete invisible characters and irregular spaces
   htmlString = htmlString.replace(
