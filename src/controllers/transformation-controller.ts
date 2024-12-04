@@ -100,7 +100,8 @@ export function transformController(
   let cleanHtml;
   let cleanJson;
   if (!data.htmlContent && !data.jsonContent) {
-    res.send('No specified content to transform.');
+    res.status(400);
+    res.json({error: 'No specified content to transform.'});
     return Promise.resolve();
   } else {
     if (data.requestedFormats.includes(TransformationFormat.HTML)) {
