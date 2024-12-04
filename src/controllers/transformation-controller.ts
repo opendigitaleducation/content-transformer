@@ -14,7 +14,7 @@ import { generateHTML, generateJSON } from '@tiptap/html';
 import { Paragraph } from '@edifice-tiptap-extensions/extension-paragraph';
 import { CustomHighlight } from '@edifice-tiptap-extensions/extension-highlight';
 import { Alert } from '@edifice-tiptap-extensions/extension-alert';
-import { Attachment } from '@edifice-tiptap-extensions/extension-attachment';
+import { AttachmentInline } from '@edifice-tiptap-extensions/extension-attachment';
 import { Audio } from '@edifice-tiptap-extensions/extension-audio';
 import { FontSize } from '@edifice-tiptap-extensions/extension-font-size';
 import { LineHeight } from '@edifice-tiptap-extensions/extension-line-height';
@@ -85,7 +85,7 @@ const EXTENSIONS = [
   Audio,
   Linker,
   CustomImage,
-  Attachment,
+  AttachmentInline,
 ];
 
 export function transformController(
