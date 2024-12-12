@@ -1,29 +1,31 @@
 import { Response } from 'express';
 import { TransformationFormat } from '../models/format.js';
+import TableOrTemplate from '../models/TableOrTemplate.js';
+import TableOrTemplateCell from '../models/TableOrTemplateCell.js';
 import {
   AuthenticatedRequest,
   ContentTransformerRequest,
   ContentTransformerResponse,
 } from '../models/transformation-request.js';
-import TableOrTemplate from '../models/TableOrTemplate.js';
-import TableOrTemplateCell from '../models/TableOrTemplateCell.js';
 
 import { generateText } from '@tiptap/core';
 import { generateHTML, generateJSON } from '@tiptap/html';
 
-import { Paragraph } from '@edifice-tiptap-extensions/extension-paragraph';
-import { CustomHighlight } from '@edifice-tiptap-extensions/extension-highlight';
-import { Alert } from '@edifice-tiptap-extensions/extension-alert';
-import { Attachment } from '@edifice-tiptap-extensions/extension-attachment';
-import { Audio } from '@edifice-tiptap-extensions/extension-audio';
-import { FontSize } from '@edifice-tiptap-extensions/extension-font-size';
-import { LineHeight } from '@edifice-tiptap-extensions/extension-line-height';
-import { Hyperlink } from '@edifice-tiptap-extensions/extension-hyperlink';
-import { Iframe } from '@edifice-tiptap-extensions/extension-iframe';
-import { CustomImage } from '@edifice-tiptap-extensions/extension-image';
-import { Linker } from '@edifice-tiptap-extensions/extension-linker';
-import { MathJax } from '@edifice-tiptap-extensions/extension-mathjax';
-import { Video } from '@edifice-tiptap-extensions/extension-video';
+import { Alert } from '@edifice.io/tiptap-extensions/alert';
+import { Attachment } from '@edifice.io/tiptap-extensions/attachment';
+import { Audio } from '@edifice.io/tiptap-extensions/audio';
+import { FontSize } from '@edifice.io/tiptap-extensions/font-size';
+import { CustomHeading } from '@edifice.io/tiptap-extensions/heading';
+import { CustomHighlight } from '@edifice.io/tiptap-extensions/highlight';
+import { Hyperlink } from '@edifice.io/tiptap-extensions/hyperlink';
+import { Iframe } from '@edifice.io/tiptap-extensions/iframe';
+import { Image } from '@edifice.io/tiptap-extensions/image';
+import { LineHeight } from '@edifice.io/tiptap-extensions/line-height';
+import { Linker } from '@edifice.io/tiptap-extensions/linker';
+import { MathJax } from '@edifice.io/tiptap-extensions/mathjax';
+import { Paragraph } from '@edifice.io/tiptap-extensions/paragraph';
+import { Video } from '@edifice.io/tiptap-extensions/video';
+
 import { Color } from '@tiptap/extension-color';
 import FontFamily from '@tiptap/extension-font-family';
 import Subscript from '@tiptap/extension-subscript';
@@ -50,7 +52,6 @@ import {
   j2plainTextTimer,
   updateCounterAndTimer,
 } from './metrics-controller.js';
-import CustomHeading from '@edifice-tiptap-extensions/extension-heading';
 
 const EXTENSIONS = [
   StarterKit.configure({ paragraph: false }),
@@ -84,7 +85,7 @@ const EXTENSIONS = [
   Video,
   Audio,
   Linker,
-  CustomImage,
+  Image,
   Attachment,
 ];
 

@@ -1,4 +1,4 @@
-import { TableCell } from '@edifice-tiptap-extensions/extension-table-cell';
+import { TableCell } from '@edifice.io/tiptap-extensions/table-cell';
 import { mergeAttributes } from '@tiptap/core';
 
 export default TableCell
