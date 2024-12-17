@@ -12,7 +12,8 @@ import { generateText } from '@tiptap/core';
 import { generateHTML, generateJSON } from '@tiptap/html';
 
 import { Alert } from '@edifice.io/tiptap-extensions/alert';
-import { Attachment, AttachmentTransformer } from '@edifice.io/tiptap-extensions/attachment';
+import { Attachment } from '@edifice.io/tiptap-extensions/attachment';
+import { AttachmentTransformer } from '@edifice.io/tiptap-extensions';
 import { Audio } from '@edifice.io/tiptap-extensions/audio';
 import { FontSize } from '@edifice.io/tiptap-extensions/font-size';
 import { CustomHeading } from '@edifice.io/tiptap-extensions/heading';
