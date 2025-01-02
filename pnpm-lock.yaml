@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@edifice.io/tiptap-extensions':
-    specifier: develop-pedago
-    version: 1.7.4-develop-pedago.20241217144204(@types/node@20.17.6)(typescript@5.3.3)
+    specifier: 2.0.0
+    version: 2.0.0(@types/node@20.17.6)(typescript@5.3.3)
   '@tiptap/core':
     specifier: 2.3.0
     version: 2.3.0(@tiptap/pm@2.3.0)
@@ -168,10 +168,10 @@ packages:
       '@babel/helper-validator-identifier': 7.25.9
     dev: false
 
-  /@edifice.io/tiptap-extensions@1.7.4-develop-pedago.20241217144204(@types/node@20.17.6)(typescript@5.3.3):
-    resolution: {integrity: sha512-mgFjaur10xBYwMvUEBACT4rgfs1scLEzYPZ1T9+MchMQLa/YhqK1SkoYacgb6W7iIslacHLbBkj46hOVCrMaag==}
+  /@edifice.io/tiptap-extensions@2.0.0(@types/node@20.17.6)(typescript@5.3.3):
+    resolution: {integrity: sha512-CHMKCj87JunfZA8oiiMljwxRu8UqowaD9yK/VMrpMtaWzQIg0W8QxqTk0bGikD3QrIBZXNfsDbrgxoHGOA141w==}
     dependencies:
-      '@edifice.io/utilities': 1.7.4-develop-pedago.20241217144204
+      '@edifice.io/utilities': 2.0.0
       '@tiptap/core': 2.3.0(@tiptap/pm@2.3.0)
       '@tiptap/extension-bold': 2.3.0(@tiptap/core@2.3.0)
       '@tiptap/extension-document': 2.3.0(@tiptap/core@2.3.0)
@@ -206,8 +206,8 @@ packages:
       - typescript
     dev: false
 
-  /@edifice.io/utilities@1.7.4-develop-pedago.20241217144204:
-    resolution: {integrity: sha512-jd+BEiq44NHqfCJhU+EKrC2lM9YELvujlXXz8pSmy2gbzA25a36Mq9r/UEu+mha81zDovYf6T9/qO0BRjL2YAA==}
+  /@edifice.io/utilities@2.0.0:
+    resolution: {integrity: sha512-OXcNWkykAVNJzlme360YEXCvO6adop0Xerzg2Aj3FPFRxheeZwB/G/kwwDjMCqbpKFgeBXYbncp2DGOTUHPmyQ==}
     dev: false
 
   /@esbuild/aix-ppc64@0.21.5:
