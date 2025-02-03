@@ -9,6 +9,7 @@ export interface ContentTransformerRequest {
   contentVersion: number;
   htmlContent: string;
   jsonContent: any;
+  additionalExtensionIds: [string];
 }
 
 export interface ContentTransformerResponse {

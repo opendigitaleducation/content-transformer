@@ -26,6 +26,7 @@ import { Linker } from '@edifice.io/tiptap-extensions/linker';
 import { MathJax } from '@edifice.io/tiptap-extensions/mathjax';
 import { Paragraph } from '@edifice.io/tiptap-extensions/paragraph';
 import { Video } from '@edifice.io/tiptap-extensions/video';
+import { ConversationHistory } from '@edifice.io/tiptap-extensions/conversation-history';
 
 import { Color } from '@tiptap/extension-color';
 import FontFamily from '@tiptap/extension-font-family';
@@ -91,12 +92,20 @@ const EXTENSIONS = [
   AttachmentTransformer,
 ];
 
+export const ADDITIONAL_EXTENSIONS = new Map<string, any>([
+  ["conversation-history", ConversationHistory],
+]);
+
 export function transformController(
   req: AuthenticatedRequest,
   res: Response,
   serviceVersion: number,
 ): Promise<void> {
   const data: ContentTransformerRequest = req.body as ContentTransformerRequest;
+  // add additional extensions to the EXTENSIONS array
+  data.additionalExtensionIds.forEach(extensionId => {
+    EXTENSIONS.push(ADDITIONAL_EXTENSIONS.get(extensionId));
+  })
   let generatedHtmlContent;
   let generatedJsonContent;
   let plainTextContent;
